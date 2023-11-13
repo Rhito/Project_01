@@ -47,3 +47,39 @@ document.querySelectorAll(".nav-item").forEach(function (element) {
         element.classList.add("active-blocktitle");
     });
 });
+
+
+let coverProducts = document.querySelector('.cover-singleday-product');
+let arrowBtns = document.querySelectorAll('.singleday-warapper .arrow i');
+let fistCardWith = 320;
+// coverProducts.querySelector('.cover-singleday-product .singleday-product').offsetWidth
+
+arrowBtns.forEach(btn => {
+    btn.addEventListener('click',() => {
+        coverProducts.scrollLeft += btn.id === 'arrow-left' ? -fistCardWith : fistCardWith;
+    })
+});
+
+const coverProductsChildrens = [...coverProducts.children];
+let cardPerView = Math.round(coverProducts.offsetWidth / fistCardWith)
+
+coverProductsChildrens.slice(-cardPerView).reverse().forEach(card => {
+    coverProducts.insertAdjacentHTML("afterbegin", card.outerHTML);
+});
+coverProductsChildrens.slice(0, cardPerView).forEach(card => {
+    coverProducts.insertAdjacentHTML("beforeend", card.outerHTML);
+});
+
+const infiniteScroll = () => {
+    if(coverProducts.scrollLeft === 0){
+        coverProducts.classList.add('no-transition')
+        coverProducts.scrollLeft = coverProducts.scrollWidth - (2 * coverProducts.offsetWidth);
+        coverProducts.classList.remove('no-transition')
+    } else if(coverProducts.scrollLeft === coverProducts.scrollWidth - coverProducts.offsetWidth){
+        coverProducts.classList.add('no-transition')
+        coverProducts.scrollLeft = coverProducts.offsetWidth;
+        coverProducts.classList.remove('no-transition')
+    }
+}
+
+coverProducts.addEventListener('scroll',infiniteScroll)

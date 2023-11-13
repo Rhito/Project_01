@@ -15,14 +15,18 @@ html {
     margin-left: -16px;
     margin-right: -16px;
 }
+.column {
+    flex: auto;
+}
 
 .column3 {
-    flex: 0 0 calc((100% / 3));
+    flex: 0 0 calc(100% / 3);
 }
 .column4 {
-    flex: 0 0 calc((100% / 4)-16px);
+    flex: 0 0 calc(23% - 16px);
     padding: 0 16px;
 }
+
 
 .column3 img {
     max-width: 100%;
@@ -31,6 +35,7 @@ html {
     border-radius: 2px;
     padding: 0 16px;
 }
+.column,
 .column4 img {
     max-width: 100%;
     height: auto;
@@ -286,7 +291,6 @@ html {
     background-color: #Da291c;
     border: 1px solid #Da291c !important;
     color: #fff;
-
 }
 
 .nav-items-blocktitle .nav-item:hover{
@@ -294,22 +298,58 @@ html {
 }
 
 /* Single day product */
+.singleday-warapper{
+    max-width: 100%;
+    max-width: 1650px;
+    position: relative;
+}
+.arrow {
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+    top: 35%;
+    display: flex;
+    justify-content: space-between;
+    left: 2px;
+}
+.arrow i {
+    background-color: rgba(255,255,255,.5);
+    padding: 8px;
+    font-size: 18px;
+}
+.cover-singleday-product {
+    display: flex;
+    overflow: hidden;
+    margin: 0 -16px;
+    scroll-behavior: smooth;
+}
+.cover-singleday-product.no-transition {
+    scroll-behavior: auto;
+}
+.singleday-product {
+    padding: 0 16px;
+}
+.singleday-product img {
+    width: auto;
+    height: 380px;
+}
+
 .block-product {
     padding: 20px 7.64vw;
 }
 
-.block-product .view-more {
+.view-more {
     text-decoration: none;
     color: #333F48;
     font-weight: 500;
 }
-.block-product a.view-more:hover {
+ a.view-more:hover {
     opacity: 0.8;
     text-decoration: underline;
     text-decoration-color: #Da291c;
 }
 
-.block-product .view-more-angle {
+.view-more-angle {
     color: #C70039;
 }
 
@@ -339,9 +379,10 @@ html {
     opacity: 0;
     margin: 4px 16px;
 }
-.product:hover .add-to-card{
+.singleday-product:hover .add-to-card{
     opacity: 0.8;
     visibility: visible;
+    z-index: 200;
 }
 
 .cloth-color {
@@ -373,6 +414,9 @@ html {
     color: #333f48;
     /* white-space: nowrap; */
 }
+.product-name:hover {
+    color: #Da291c;
+}
 
 .normal-price {
     font-weight: 700;
@@ -394,7 +438,6 @@ html {
     margin-left: 8px;
 }
 
-
 .product-item-label-text {
     color: #da291c;
     border: 1px solid #da291c;
@@ -406,3 +449,31 @@ html {
     font-size: 11px;
     line-height: 16px;
 }
+
+/* block collection */
+.block-collection {
+    padding: 20px 7.64vw;
+}
+.new-product {
+    flex: auto;
+}
+
+/* suggestion-product */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Tạo 4 cột bằng nhau */
+    grid-gap: 10px; /* Khoảng cách giữa các ảnh */
+  }
+  
+  .grid-item {
+    width: 100%; /* Đảm bảo ảnh điền hết vào cột */
+  }
+  
+  .grid-item img {
+    width: 100%;
+    height: auto;
+  }
+
+
+
+  
