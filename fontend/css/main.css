@@ -7,6 +7,28 @@ html {
     color: #333F48;
 }
 
+.main{
+    position: relative;
+}
+.back-to-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 20px;
+    right: 0;
+    z-index: 999;
+    background-color: #e6e7e8;
+    width: 34px;
+    height: 34px;
+    border-radius: 4px;
+    behavior: 'smooth';
+}
+.back-to-top i {
+    color: #333f48;
+    font-size: 18px;
+}
+
 /* container */
 /* dùng kĩ thuật margin âm */
 .container {
@@ -26,7 +48,6 @@ html {
     flex: 0 0 calc(23% - 16px);
     padding: 0 16px;
 }
-
 
 .column3 img {
     max-width: 100%;
@@ -63,12 +84,14 @@ html {
 .header {
     width: calc(100% - 64px * 2);
     height: 96px;
-    background-color: #fff;
+    background-color: #fafafa;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #e6e7e8;
     padding: 0 64px;
+    position: fixed;
+    z-index: 800;
 }
 
 .header img {
@@ -161,7 +184,7 @@ html {
     position: relative;
     min-height: 490px;
     overflow: hidden;
-    
+    padding-top: 96px;
 }
 .list-slider {
     height: 100%;
@@ -310,7 +333,7 @@ html {
     top: 35%;
     display: flex;
     justify-content: space-between;
-    left: 2px;
+    cursor: pointer;
 }
 .arrow i {
     background-color: rgba(255,255,255,.5);
@@ -318,16 +341,13 @@ html {
     font-size: 18px;
 }
 .cover-singleday-product {
-    display: flex;
-    overflow: hidden;
-    margin: 0 -16px;
     scroll-behavior: smooth;
+    gap: 16px;
 }
 .cover-singleday-product.no-transition {
     scroll-behavior: auto;
 }
 .singleday-product {
-    padding: 0 16px;
 }
 .singleday-product img {
     width: auto;
@@ -459,12 +479,26 @@ html {
 }
 
 /* suggestion-product */
+.suggestion-product{
+    padding: 20px 7.64vw;
+}
+.grid-container-inline {
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Tạo 4 cột bằng nhau */
+    grid-gap: 31px; /* Khoảng cách giữa các ảnh */
+    grid-auto-flow: column; 
+  }
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* Tạo 4 cột bằng nhau */
-    grid-gap: 10px; /* Khoảng cách giữa các ảnh */
-  }
-  
+    grid-gap: 31px; /* Khoảng cách giữa các ảnh */
+}
+.grid-container .grid-item {
+    width: 100%;
+    margin-bottom: 38px;
+}
   .grid-item {
     width: 100%; /* Đảm bảo ảnh điền hết vào cột */
   }
@@ -472,8 +506,119 @@ html {
   .grid-item img {
     width: 100%;
     height: auto;
+    position: relative;
+  }
+
+  .grid-item:hover .add-to-card {
+    opacity: 0.8;
+    visibility: visible;
+    z-index: 200;
   }
 
 
+/* footer */
 
+.social-wrapper {
+    background-color: #fafafa;
+    padding-top: 32px;
+}
+.social-wrapper h3 {
+    text-align: center;
+}
+.block-social {
+    display: flex;
+    justify-content: center;
+    padding: 32px 0;
+}
+.social {
+    margin: 0 16px;
+    display: block;
+    width: 38px;
+    height: 38px;
+    background-color: #fff;
+    box-shadow: 0 0.5px 2px rgba(96,97,112,.16);
+    text-align: center;
+    line-height: 38px;
+    border-radius: 4px;
+    color: #333F48;
+    font-size: 24px;
+}
+
+.footer-content {
+    display: flex;
+    padding: 34px 7.64vw;
+    border-top: 1px solid #ccc;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.row {
+    flex-wrap: wrap;
+    display: flex;
+    margin-right: -16px;
+    margin-left: -16px;
+}
+.footer-column1 {
+    font-weight: 400;
+    width: 28%;
+    padding: 0 16px;
+}
+.footer-column1 h3,
+.footer-column2 h3,
+.footer-column3 h3,
+.footer-column4 h3 {
+    margin-bottom: 24px;
+    font-size: 14px;
+}
+.footer-column1 p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.71;
+    color: #333F48;
+    text-align: justify;
+    margin-bottom: 4px;
+}
+
+.footer-column2 {
+    padding: 0 16px;
+    width: 15%;
+    font-size: 14px;
+    line-height: 1.71;
+}
+.footer-column2 a,
+.footer-column3 a {
+    color: #333f48;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 16px;
+}
+.footer-column2 a:hover,
+.footer-column3 a:hover {
+    color: #da291c;
+}
+
+.footer-column3,
+.footer-column4 {
+    padding: 0 16px;
+    width: 20%;
+    font-size: 14px;
+    line-height: 1.71;
+}
+
+.appliaction {
+    display: flex;
+}
+.appliaction img {
+    width: 100px;
+    margin-bottom: 8px;
+}
+.apps img{
+    margin-bottom: 8px;
+}
+
+.payment img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+}
   

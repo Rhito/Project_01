@@ -51,12 +51,13 @@ document.querySelectorAll(".nav-item").forEach(function (element) {
 
 let coverProducts = document.querySelector('.cover-singleday-product');
 let arrowBtns = document.querySelectorAll('.singleday-warapper .arrow i');
-let fistCardWith = 320;
+let fistCardWith = 300;
 // coverProducts.querySelector('.cover-singleday-product .singleday-product').offsetWidth
+console.log(fistCardWith)
 
 arrowBtns.forEach(btn => {
     btn.addEventListener('click',() => {
-        coverProducts.scrollLeft += btn.id === 'arrow-left' ? -fistCardWith : fistCardWith;
+        coverProducts.scrollLeft += btn.id === 'arrow-left' ? -fistCardWith-8 : fistCardWith+8;
     })
 });
 
