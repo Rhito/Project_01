@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CANIFA</title>
-    <link rel="stylesheet" href="./fontend/css/main.css">
     <link rel="shortcut icon" href="./fontend/images/icon.jpg" type="image/x-icon">
     <link rel="stylesheet" href="./fontend/fonts/fontawesome-free-6.4.0-web/css/all.min.css">
     <link href='//fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800'
-        rel='stylesheet' type='text/css'>
+    rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./fontend/css/main.css">
 </head>
 
 <body>
@@ -17,11 +17,6 @@
 
         <!-- header -->
         <div class="header">
-            <!-- slide-up -->
-            <!-- <div class="slide-up">
-                <p class="slide-up-text">[Tháng 11 này!] Miễn phí vận chuyển cho mọi đơn </p>
-            </div> -->
-            
             <!-- logo home -->
             <img onclick="document.location.href='#'" src="./fontend/images/logo.svg" alt="" width="7%">
 
@@ -53,11 +48,90 @@
             <!-- menu login and cart-shopping -->
             <div class="menu-icon">
                 <div class="user-login">
-                    <a href="#">
+                    <a class="login-select">
                         <i class="fa-solid fa-user"></i>
                         <span class="user-title">Tài khoản</span>
                     </a>
                 </div>
+                <!-- modal login -->
+                <div class="login-modal">
+                    <div class="modal-content">
+                        <div class="modal-close">
+                            <i class="fa-solid fa-x"></i>
+                        </div>
+                        
+                        <div class="block-login">
+                            <div class="login-img">
+                                <img src="./fontend/images/account-login.png" alt="">
+                            </div>
+                        
+                            <form action="" method="post" class="signin-frm">
+                                <h1>Xin chào,</h1>
+                                <label for="login_username">Tên đăng nhập:</label>
+                                <input class="form-control" type="text" name="login_username" id="login_username" placeholder="Tên đăng nhập">
+                                <label for="login_password">Mật khẩu:</label>
+                                <input class="form-control" type="password" name="login_password" id="login_password" placeholder="Mật khẩu">
+                                <button class="form-control submit-btn" name="submit-login-btn">
+                                    Tiếp tục
+                                </button>
+                            </form>
+                            <div class="note-term">
+                                <p>* nếu bạn chưa có tài khoản hãy đăng ký <a class="sign-in">* tại đây</a></p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- model sign-in -->
+                <div class="signin-modal">
+                    <div class="modal-content">
+                        <div class="modal-signin-close">
+                            <i class="fa-solid fa-x"></i>
+                        </div>
+                    </div>
+
+                    <div class="block-signin">
+                        <div class="modal-content ">
+                            <form action="" method="post" class="signin-frm">
+                                <h1>Vui lòng nhập đầy đủ thông tin,</h1>  
+                                    <label for="username">Tên đăng nhập:</label>
+                                    <input class="form-control" type="text" name="username" id="username" placeholder="Tên đăng nhập">
+                                    
+                                    <label for="password">Mật khẩu:</label>
+                                    <input class="form-control" type="password" name="password" id="password" placeholder="Mật khẩu">
+                                    
+                                    <label for="full_name">Họ và tên</label>
+                                    <input class="form-control" type="text" name="full_name" id="full_name">
+                                    
+                                    <label for="age">Tuổi</label>
+                                    <input class="form-control" type="text" name="age" id="age">
+                                    
+                                    <label for="gender">Giới tính</label>
+                                    <select name="gender" id="gender" class="form-control">
+                                        <option value="1">Nam</option>
+                                        <option value="0">Nữ</option>
+                                    </select> 
+                                    
+                                    <label for="address">Địa chỉ</label>
+                                    <input class="form-control" type="text" name="address" id="address">
+                                    
+                                    <label for="email">Email</label>
+                                    <input class="form-control" type="email" name="email" id="email">
+                                    
+                                    <label for="phone">Số điện thoại</label>
+                                    <input class="form-control" type="number" name="phone" id="phone">
+                                    
+                                    <button class="form-control submit-btn" name="submit-login-btn">
+                                        Tiếp tục
+                                    </button>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+
                 <div class="cart-shopping">
                     <a href="#">
                         <i class="fa-solid fa-cart-shopping"></i>
@@ -100,7 +174,7 @@
                 </div>
                 <div class="content-service">
                     <h3>Thanh toán khi nhận  (COD)</h3>
-                    <span>Giao  toàn quốc</span>
+                    <span>Giao hàng toàn quốc</span>
                 </div>
             </div>
             <div class="service">
@@ -109,7 +183,7 @@
                 </div>
                 <div class="content-service">
                     <h3>Miễn phí giao </h3>
-                    <span>Với đơn  trên 599.000đ.</span>
+                    <span>Với đơn hàng trên 599.000đ.</span>
                 </div>
             </div>
             <div class="service">
@@ -117,7 +191,7 @@
                     <img src="./fontend/images/service3.png" alt="">
                 </div>
                 <div class="content-service">
-                    <h3>Đổi  miễn phí</h3>
+                    <h3>Đổi hàng miễn phí</h3>
                     <span>Trong 30 ngày kể từ ngày mua.</span>
                 </div>
             </div>

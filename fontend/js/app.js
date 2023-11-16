@@ -1,4 +1,35 @@
-let list = document.querySelector('.slider .list-slider')
+// login 
+const loginBtn = document.querySelector('.login-select');
+const loginModal = document.querySelector('.login-modal')
+const closeModal = document.querySelector('.modal-close')
+
+function showLogin (){
+    loginModal.classList.add('visible');
+};
+function closeLogin (){
+    loginModal.classList.remove('visible');
+};
+
+loginBtn.addEventListener('click', showLogin);
+closeModal.addEventListener('click', closeLogin);
+
+// sign in
+const signInBtn = document.querySelector('.sign-in');
+const signInModal = document.querySelector('.signin-modal')
+const closeSignInModal = document.querySelector('.modal-signin-close')
+function showSignIn (){
+    signInModal.classList.add('visible');
+    loginModal.classList.remove('visible'); 
+};
+function closeSignIn (){
+    signInModal.classList.remove('visible');
+};
+
+signInBtn.addEventListener('click', showSignIn);
+closeSignInModal.addEventListener('click', closeSignIn);
+
+// slider
+let list = document.querySelector('.slider .list-slider');
 let items = document.querySelectorAll('.slider .list-slider .item-slider');
 let dots =  document.querySelectorAll('.slider .dots-slider li');
 let leftBtn = document.getElementById('btns-slider-left');
@@ -51,13 +82,12 @@ document.querySelectorAll(".nav-item").forEach(function (element) {
 
 let coverProducts = document.querySelector('.cover-singleday-product');
 let arrowBtns = document.querySelectorAll('.singleday-warapper .arrow i');
-let fistCardWith = 300;
-// coverProducts.querySelector('.cover-singleday-product .singleday-product').offsetWidth
+let fistCardWith = coverProducts.querySelector('.singleday-product').offsetWidth 
 console.log(fistCardWith)
 
 arrowBtns.forEach(btn => {
     btn.addEventListener('click',() => {
-        coverProducts.scrollLeft += btn.id === 'arrow-left' ? -fistCardWith-8 : fistCardWith+8;
+        coverProducts.scrollLeft += btn.id === 'arrow-left' ? -fistCardWith : fistCardWith;
     })
 });
 

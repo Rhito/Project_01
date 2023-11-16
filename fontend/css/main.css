@@ -17,12 +17,11 @@ html {
     position: fixed;
     bottom: 20px;
     right: 0;
-    z-index: 999;
+    z-index: 400;
     background-color: #e6e7e8;
     width: 34px;
     height: 34px;
     border-radius: 4px;
-    behavior: 'smooth';
 }
 .back-to-top i {
     color: #333f48;
@@ -174,9 +173,114 @@ html {
 .menu-icon a:hover {
     opacity: 0.8;
 }
+.menu-icon a:hover i{
+    color: #Da291c;
+}
 .menu-icon span {
     color: #333F48;
     font-size: 12px;
+}
+.menu-icon .user-login{
+    cursor: pointer;
+}
+
+/* login modal */
+
+.login-modal,
+.signin-modal {
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 600;
+    display: none;
+}
+.visible {
+    display: block;
+}
+.modal-content {
+    border-radius: 4px;
+    display: block;
+    padding-top: 3.7500em;
+    position: relative;
+    background-color: #e6e7e8;
+    width: 64%;
+    margin: 0 auto;
+    padding: 30px 60px;
+}
+
+.modal-close,
+.modal-signin-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.4125em;
+    width: 2.0250em;
+    height: 2.0250em;
+    text-align: center;
+    line-height: 2.1250em;
+    cursor: pointer;
+}
+.modal-signin-close,
+.modal-close:hover {
+    color: #C70039;
+}
+
+.block-login {
+
+}
+
+.block-login img,
+.block-signin img {
+    display: block;
+    margin: 0 auto;
+}
+
+.login-frm h1,
+.signin-frm h1 {
+    margin-bottom: .5em;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    height: 40px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333f48;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 0 1em;
+    margin-bottom: .4em;
+}
+
+.submit-btn {
+    background-color: #edf1f5;
+    border-color: #cbd5e1;
+    color: #a6b3c2;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 1.2500em auto;
+    width: 60%;
+    padding: 0;
+}
+.submit-btn:hover {
+    color: #333f48;
+    border-color: #333f48;
+    opacity: 0.8;
+}
+.note-term a {
+    display: inline-block;
+    margin: 0;
+    color: rgb(4, 35, 66);
+    cursor: pointer;
 }
 
 /* slider */
@@ -342,7 +446,6 @@ html {
 }
 .cover-singleday-product {
     scroll-behavior: smooth;
-    gap: 16px;
 }
 .cover-singleday-product.no-transition {
     scroll-behavior: auto;
@@ -514,7 +617,6 @@ html {
     visibility: visible;
     z-index: 200;
   }
-
 
 /* footer */
 
