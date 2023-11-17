@@ -1,0 +1,41 @@
+/* pc >= 1024px / 64em*/
+@media (min-width:  64em){
+
+}
+
+/*  1023px / 63.9375em >= Tablet >= 740px / 46.25em */
+@media (max-width: 63.9375em) and (min-width: 46.25em){
+    
+}
+
+/* mobile and tablet */
+@media (max-width: 63.9375em){
+    .header img {
+        cursor: pointer;
+        width: 84px;
+    }
+    .block-service {
+        display: none;
+    }
+}
+
+/* Moblie <= 739px / 46.1875em */
+@media (max-width: 46.1875em){
+    .nav-items-blocktitle .nav-item {
+        display: none;
+    }
+    
+    button.slick-prev.slick-arrow,
+    button.slick-arrow.slick-next {
+        display: none !important;
+    }
+    .image-item:hover .add-to-card {
+        display: none;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 31px;
+    }
+}

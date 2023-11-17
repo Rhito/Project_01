@@ -80,37 +80,34 @@ document.querySelectorAll(".nav-item").forEach(function (element) {
 });
 
 
-let coverProducts = document.querySelector('.cover-singleday-product');
-let arrowBtns = document.querySelectorAll('.singleday-warapper .arrow i');
-let fistCardWith = coverProducts.querySelector('.singleday-product').offsetWidth 
-console.log(fistCardWith)
-
-arrowBtns.forEach(btn => {
-    btn.addEventListener('click',() => {
-        coverProducts.scrollLeft += btn.id === 'arrow-left' ? -fistCardWith : fistCardWith;
-    })
+$(document).ready(function () {
+    $(".image-slider").slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        infinite: true,
+        arrows: true,
+        draggable: false,
+        prevArrow: `<button type='button' class='slick-prev slick-arrow'><i id="arrow-left" class="fa-solid fa-arrow-left"></i></button>`,
+        nextArrow: `<button type='button' class='slick-next slick-arrow'><i id="arrow-left" class="fa-solid fa-arrow-right"></i></button>`,
+        dots: false,
+        responsive: [
+            {
+                breakpoint: 1025,
+                settings: {
+                    slidesToShow: 3,
+                },
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    arrows: false,
+                    infinite: true,
+                    draggable: true,
+                },
+            },
+        ],
+        // autoplay: true,
+        // autoplaySpeed: 1000,
+    });
 });
-
-const coverProductsChildrens = [...coverProducts.children];
-let cardPerView = Math.round(coverProducts.offsetWidth / fistCardWith)
-
-coverProductsChildrens.slice(-cardPerView).reverse().forEach(card => {
-    coverProducts.insertAdjacentHTML("afterbegin", card.outerHTML);
-});
-coverProductsChildrens.slice(0, cardPerView).forEach(card => {
-    coverProducts.insertAdjacentHTML("beforeend", card.outerHTML);
-});
-
-const infiniteScroll = () => {
-    if(coverProducts.scrollLeft === 0){
-        coverProducts.classList.add('no-transition')
-        coverProducts.scrollLeft = coverProducts.scrollWidth - (2 * coverProducts.offsetWidth);
-        coverProducts.classList.remove('no-transition')
-    } else if(coverProducts.scrollLeft === coverProducts.scrollWidth - coverProducts.offsetWidth){
-        coverProducts.classList.add('no-transition')
-        coverProducts.scrollLeft = coverProducts.offsetWidth;
-        coverProducts.classList.remove('no-transition')
-    }
-}
-
-coverProducts.addEventListener('scroll',infiniteScroll)

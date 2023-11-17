@@ -1,203 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CANIFA</title>
-    <link rel="shortcut icon" href="./fontend/images/icon.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="./fontend/fonts/fontawesome-free-6.4.0-web/css/all.min.css">
-    <link href='//fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800'
-    rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="./fontend/css/main.css">
-</head>
-
-<body>
-    <div class="main">
-
-        <!-- header -->
-        <div class="header">
-            <!-- logo home -->
-            <img onclick="document.location.href='#'" src="./fontend/images/logo.svg" alt="" width="7%">
-
-            <!-- list menu -->
-            <ul class="list-menu">
-                <li>
-                    <a href="#">Trang Chủ</a>
-                </li>
-                <li>
-                    <a href="#">Giới Thiệu</a>
-                </li>
-                <li>
-                    <a href="#">Tin Tức</a>
-                </li>
-                <li>
-                    <a href="#">Liên Hệ</a>
-                </li>
-                <li>
-                    <a href="#">Sản Phẩm</a>
-                    <ul class="submenu">
-                        <li><a href="">Nam</a></li>
-                        <li><a href="">Nữ</a></li>
-                        <li><a href="">Bé trai</a></li>
-                        <li><a href="">Bé gái</a></li>
-                    </ul>
-                </li>
-            </ul>
-
-            <!-- menu login and cart-shopping -->
-            <div class="menu-icon">
-                <div class="user-login">
-                    <a class="login-select">
-                        <i class="fa-solid fa-user"></i>
-                        <span class="user-title">Tài khoản</span>
-                    </a>
-                </div>
-                <!-- modal login -->
-                <div class="login-modal">
-                    <div class="modal-content">
-                        <div class="modal-close">
-                            <i class="fa-solid fa-x"></i>
-                        </div>
-                        
-                        <div class="block-login">
-                            <div class="login-img">
-                                <img src="./fontend/images/account-login.png" alt="">
-                            </div>
-                        
-                            <form action="" method="post" class="signin-frm">
-                                <h1>Xin chào,</h1>
-                                <label for="login_username">Tên đăng nhập:</label>
-                                <input class="form-control" type="text" name="login_username" id="login_username" placeholder="Tên đăng nhập">
-                                <label for="login_password">Mật khẩu:</label>
-                                <input class="form-control" type="password" name="login_password" id="login_password" placeholder="Mật khẩu">
-                                <button class="form-control submit-btn" name="submit-login-btn">
-                                    Tiếp tục
-                                </button>
-                            </form>
-                            <div class="note-term">
-                                <p>* nếu bạn chưa có tài khoản hãy đăng ký <a class="sign-in">* tại đây</a></p>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-                <!-- model sign-in -->
-                <div class="signin-modal">
-                    <div class="modal-content">
-                        <div class="modal-signin-close">
-                            <i class="fa-solid fa-x"></i>
-                        </div>
-                    </div>
-
-                    <div class="block-signin">
-                        <div class="modal-content ">
-                            <form action="" method="post" class="signin-frm">
-                                <h1>Vui lòng nhập đầy đủ thông tin,</h1>  
-                                    <label for="username">Tên đăng nhập:</label>
-                                    <input class="form-control" type="text" name="username" id="username" placeholder="Tên đăng nhập">
-                                    
-                                    <label for="password">Mật khẩu:</label>
-                                    <input class="form-control" type="password" name="password" id="password" placeholder="Mật khẩu">
-                                    
-                                    <label for="full_name">Họ và tên</label>
-                                    <input class="form-control" type="text" name="full_name" id="full_name">
-                                    
-                                    <label for="age">Tuổi</label>
-                                    <input class="form-control" type="text" name="age" id="age">
-                                    
-                                    <label for="gender">Giới tính</label>
-                                    <select name="gender" id="gender" class="form-control">
-                                        <option value="1">Nam</option>
-                                        <option value="0">Nữ</option>
-                                    </select> 
-                                    
-                                    <label for="address">Địa chỉ</label>
-                                    <input class="form-control" type="text" name="address" id="address">
-                                    
-                                    <label for="email">Email</label>
-                                    <input class="form-control" type="email" name="email" id="email">
-                                    
-                                    <label for="phone">Số điện thoại</label>
-                                    <input class="form-control" type="number" name="phone" id="phone">
-                                    
-                                    <button class="form-control submit-btn" name="submit-login-btn">
-                                        Tiếp tục
-                                    </button>
-                            </form>
-
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="cart-shopping">
-                    <a href="#">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <span class="cart-shopping-title">Giỏ hàng</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- slider -->
-        <div class="slider">
-            <div class="list-slider">
-                <div class="item-slider">
-                    <img src="./fontend/images/banner1.jpg" alt="">
-                </div>
-                <div class="item-slider">
-                    <img src="./fontend/images/banner2.jpg" alt="">
-                </div>
-                <div class="item-slider">
-                    <img src="./fontend/images/banner3.jpg" alt="">
-                </div>
-            </div>
-
-            <div class="btns-slider">
-                <div id="btns-slider-left" class=" btn-slider"><i class="fa-solid fa-arrow-left"></i></div>
-                <div id="btns-slider-right" class=" btn-slider"><i class="fa-solid fa-arrow-right"></i></i></div>
-            </div>
-
-            <ul class="dots-slider">
-                <li class="active"></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
-
-        <div class="block-service">
-            <div class="service">
-                <div class="icon-service">
-                    <img src="./fontend/images/service1.png" alt="">
-                </div>
-                <div class="content-service">
-                    <h3>Thanh toán khi nhận  (COD)</h3>
-                    <span>Giao hàng toàn quốc</span>
-                </div>
-            </div>
-            <div class="service">
-                <div class="icon-service">
-                    <img src="./fontend/images/service2.png" alt="">
-                </div>
-                <div class="content-service">
-                    <h3>Miễn phí giao </h3>
-                    <span>Với đơn hàng trên 599.000đ.</span>
-                </div>
-            </div>
-            <div class="service">
-                <div class="icon-service">
-                    <img src="./fontend/images/service3.png" alt="">
-                </div>
-                <div class="content-service">
-                    <h3>Đổi hàng miễn phí</h3>
-                    <span>Trong 30 ngày kể từ ngày mua.</span>
-                </div>
-            </div>
-        </div>
-        <!-- conntent -->
-        <div class="content">
+<!-- conntent -->
+<div class="content">
             <div class="blockdeals">
                 <div class="block-title">
                     <h2>Ưu đãi độc quyền</h2>
@@ -206,14 +8,14 @@
                         <div id="blocktitle-store" class="nav-item">Cửa hàng</div>
                     </div>
                 </div>
-                <div class="slick-list container">
-                    <div class="slick-item column3">
+                <div class="container">
+                    <div class="column3">
                         <img src="./fontend/images/1.-do-thiet-yeu_uu-dai_desktop-mobile.jpg" alt="">
                     </div>
-                    <div class="slick-item column3">
+                    <div class="column3">
                         <img src="./fontend/images/2.-vc-banmoi80_uu-dai_desktop-mobile.jpg" alt="">
                     </div>
-                    <div class="slick-item column3">
+                    <div class=" column3">
                         <img src="./fontend/images/3.-tat-giam-50_uu-dai_desktop-mobile.jpg" alt="">
                     </div>
                 </div>
@@ -229,16 +31,11 @@
                         </a>
                     </div>
                 </div>
-                <div class="singleday-warapper">
-                    <div class="arrow">
-                        <i id="arrow-left" class="fa-solid fa-arrow-left"></i>
-                        <i id="arrow-right" class="fa-solid fa-arrow-right"></i>
-                    </div>
-
-                    <div class="cover-singleday-product grid-container-inline">
-                        <div class="singleday-product">
-                            <div class="product-img">
-                                <img src="./fontend/images/singledayProduct1.jpg" alt="">
+                <div class="image-slider-wrapper">
+                    <div class="image-slider">
+                        <div class="image-item">
+                            <div class="image">
+                                <img src="./fontend/images/singledayProduct4.jpg" alt="" />
                                 <div class="add-to-card">
                                     <p>Thêm nhanh vào giỏ</p>
                                 </div>
@@ -258,10 +55,9 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="singleday-product">
-                            <div class="product-img">
-                                <img src="./fontend/images/singledayProduct1.jpg" alt="">
+                        <div class="image-item">
+                            <div class="image">
+                                <img src="./fontend/images/singledayProduct1.jpg" alt="" />
                                 <div class="add-to-card">
                                     <p>Thêm nhanh vào giỏ</p>
                                 </div>
@@ -281,10 +77,9 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="singleday-product">
-                            <div class="product-img">
-                                <img src="./fontend/images/singledayProduct1.jpg" alt="">
+                        <div class="image-item">
+                            <div class="image">
+                                <img src="./fontend/images/singledayProduct2.jpg" alt="" />
                                 <div class="add-to-card">
                                     <p>Thêm nhanh vào giỏ</p>
                                 </div>
@@ -304,10 +99,9 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="singleday-product">
-                            <div class="product-img">
-                                <img src="./fontend/images/singledayProduct1.jpg" alt="">
+                        <div class="image-item">
+                            <div class="image">
+                                <img src="./fontend/images/singledayProduct2.jpg" alt="" />
                                 <div class="add-to-card">
                                     <p>Thêm nhanh vào giỏ</p>
                                 </div>
@@ -327,77 +121,32 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="singleday-product">
-                            <div class="product-img">
-                                <img src="./fontend/images/singledayProduct2.jpg" alt="">
+                        <div class="image-item">
+                            <div class="image">
+                                <img src="./fontend/images/singledayProduct2.jpg" alt="" />
                                 <div class="add-to-card">
                                     <p>Thêm nhanh vào giỏ</p>
                                 </div>
                             </div>
                             <div class="cloth-color color-selected">
-                                <img src="https://media.canifa.com/attribute/swatch/images/sa845.png" alt="">
+                                <img src="https://media.canifa.com/attribute/swatch/images/fm209.png" alt="">
                             </div>
                             <div class="inf-product">
-                                <a class="product-name" href="">
-                                    Áo khoác chần bông unisex trẻ em có mũ</a>
+                                <a href="" class="product-name">Bộ pyjama bé gái họa tiết</a>
                                 <div class="price-box">
-                                    <span class="normal-price">549.000 ₫</span>
-                                    <!-- <div class="discount-box">
+                                    <span class="normal-price">336.750 ₫</span>
+                                    <div class="discount-box">
                                         <span class="old-price">449.000 ₫</span>
                                         <span class="discount-price">-25%</span>
-                                    </div> -->
+                                    </div>
                                     <div class="product-item-label-text">Độc quyền online</div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="singleday-product">
-                            <div class="product-img">
-                                <img src="./fontend/images/singledayProduct3.jpg" alt="">
-                                <div class="add-to-card">
-                                    <p>Thêm nhanh vào giỏ</p>
-                                </div>
-                            </div>
-                            <div class="cloth-color color-selected">
-                                <img src="https://media.canifa.com/attribute/swatch/images/sw001.png" alt="">
-                            </div>
-                            <a class="product-name" href="">
-                                Áo phông bé trai cotton cổ tròn dài tay có hình in</a>
-                            <div class="price-box">
-                                <span class="normal-price">174.300 ₫</span>
-                                <div class="discount-box">
-                                    <span class="old-price">249.000 ₫</span>
-                                    <span class="discount-price">-30%</span>
-                                </div>
-                                <!-- <div class="product-item-label-text">Độc quyền online</div> -->
-                            </div>
-                        </div>
-
-                        <div class="singleday-product">
-                            <div class="product-img">
-                                <img src="./fontend/images/singledayProduct4.1.jpg" alt="">
-                                <div class="add-to-card">
-                                    <p>Thêm nhanh vào giỏ</p>
-                                </div>
-                            </div>
-                            <div class="cloth-color color-selected">
-                                <img src="https://media.canifa.com/attribute/swatch/images/sj746.png" alt="">
-                            </div>
-                            <a class="product-name" href="">
-                                Quần jeans nam gấu bo chun dáng suông</a>
-                            <div class="price-box">
-                                <span class="normal-price">419.300 ₫</span>
-                                <!-- <div class="discount-box">
-                                    <span class="old-price">449.000 ₫</span>
-                                    <span class="discount-price">-25%</span>
-                                </div> -->
-                                <!-- <div class="product-item-label-text">Độc quyền online</div> -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
             <div class="block-collection">
                 <div class="block-title">
                     <h2>Sản phẩm mới</h2>
@@ -627,92 +376,3 @@
             </div>
 
         </div>
-
-        <!-- footer -->
-        <div class="footer">
-            
-            <div class="social-wrapper">
-                <h3>Cùng Canifa Blog cập nhật những thông tin mới nhất về thời trang và phong cách sống.</h3>
-                <div class="block-social">
-                    <a class="social" href=""><i class="fa-brands fa-facebook-f"></i></a>
-                    <a class="social" href=""><i class="fa-brands fa-instagram"></i></a>
-                    <a class="social" href=""><i class="fa-brands fa-youtube"></i></a>
-                    <a class="social" href=""><i class="fa-brands fa-tiktok"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-content">
-                 <div class="row">
-                    <div class="footer-column1">
-                        <h3>CÔNG TY CỔ PHẦN CANIFA</h3>
-                        <p>Số ĐKKD: 0107574310, ngày cấp: 23/09/2016, Nơi cấp: Sở Kế hoạch và đầu tư Hà Nội</p>
-                        <p>Địa chỉ trụ sở tại số 688 Đường Quang Trung, Phường La Khê, Quận Hà Đông, Thành phố Hà Nội.</p>
-                        <p>Địa chỉ liên hệ: P301, tầng 3, tòa nhà GP Invest, số 170 La Thành, Phường Ô Chợ Dừa, Quận Đống Đa, Thành Phố Hà Nội.</p>
-                        <p>Điện thoại: +8424 - 7303.0222</p>
-                        <p>Fax: +8424 - 6277.6419</p>
-                        <p>Email: hello@canifa.com</p>
-                        <div class="block-social">
-                            <a class="social" href=""><i class="fa-brands fa-facebook-f"></i></a>
-                            <a class="social" href=""><i class="fa-brands fa-instagram"></i></a>
-                            <a class="social" href=""><i class="fa-brands fa-youtube"></i></a>
-                            <a class="social" href=""><i class="fa-brands fa-tiktok"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="footer-column2">
-                        <h3>THƯƠNG HIỆU</h3>
-                        <a href="">Giới thiệu</a>
-                        <a href="">Tin tức</a>
-                        <a href="">Tuyển dụng</a>
-                        <a href="">Với cộng đồng</a>
-                        <a href="">Hệ thống cửa hàng</a>
-                        <a href="">Liên hệ</a>
-                    </div>
-
-                    <div class="footer-column3">
-                        <h3>HỖ TRỢ</h3>
-                        <a href="">Hỏi đáp</a>
-                        <a href="">Chính sách KHTT</a>
-                        <a href="">Điều kiện - Điều khoản Chính sách KHTT</a>
-                        <a href="">Chính sách vận chuyển</a>
-                        <a href="">Gợi ý tìm size</a>
-                        <a href="">Kiểm tra đơn hàng</a>
-                        <a href="">Chính sách bảo mật thông tin KH</a>
-                    </div>
-
-                    <div class="footer-column4">
-                        <h3>TẢI ỨNG DỤNG</h3>
-                        <div class="appliaction">
-                            <div class="bancode">
-                                <img src="./fontend/images/bancode.png" alt="">
-                            </div>
-                            <div class="apps">
-                                <a href="">
-                                    <img src="./fontend/images/googleplay.png" alt="">
-                                </a>
-                                <a href="">
-                                    <img src="./fontend/images/appstore.png" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <h3>PHƯƠNG THỨC THANH TOÁN</h3>
-                        <div class="payment">
-                            <img src="./fontend/images/pay.svg" alt="">
-                        </div>
-                    </div>
-
-                 </div>
-
-            </div>
-
-        </div>
-    </div>
-    <div class="back-to-top">
-        <a href="">
-            <i class="fa-solid fa-angle-up"></i>
-        </a>
-    </div>
-    <script src="./fontend/js/app.js"></script>
-</body>
-
-</html>
