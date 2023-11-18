@@ -1,0 +1,66 @@
+<!-- conntent -->
+<div class="content">
+    <?php
+        if (isset($_GET['quanly'])){
+            $temp = $_GET['quanly'];
+        }else {
+            $temp = '';
+        }
+        if ($temp == 'danhmucsanpham'){
+
+            if (isset($_GET['id'])) {
+                $productId = $_GET['id'];
+                if ($productId == 1) {
+                    include ('./pages/content/sanphamNam.php');
+                }elseif ($productId == 2) {
+                    include ('./pages/content/sanphamNu.php');
+                }elseif ($productId == 3) {
+                    include ('./pages/content/sanphamBetrai.php');
+                }elseif ($productId == 4) {
+                    include ('./pages/content/sanphamBegai.php');
+                }
+
+            }else {
+                include ('./pages/content/blockdeals.php');
+
+                include ('./pages/content/sanphamNam.php');
+
+                include ('./pages/content/sanphamNu.php');
+
+                include ('./pages/content/sanphamBetrai.php');
+
+                include ('./pages/content/sanphamBegai.php');
+
+                include ('./pages/content/block-collection.php');
+
+                include ('./pages/content/suggestion-product.php');
+            }
+
+        }else {
+            include ('./pages/content/blockdeals.php');
+
+            include ('./pages/content/sanphamNam.php');
+
+            include ('./pages/content/block-collection.php');
+
+            include ('./pages/content/suggestion-product.php');
+        }
+
+        // include ('./pages/content/blockdeals.php');
+
+        // include ('./pages/content/sanphamNam.php');
+
+        // include ('./pages/content/sanphamNu.php');
+
+        // include ('./pages/content/sanphamBetrai.php');
+
+        // include ('./pages/content/sanphamBegai.php');
+
+        // include ('./pages/content/suggestion-product.php');
+
+        // include ('./pages/content/block-collection.php');
+
+        // include ('./pages/content/suggestion-product.php');
+    ?>
+
+</div>

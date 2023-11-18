@@ -18,15 +18,15 @@
     <div class="wrapper">
       <?php
        
-        include ('./backend/pages/header.php');
+        include ('./pages/header.php');
 
-        include ('./backend/pages/slider.php');
+        include ('./pages/slider.php');
         
-        include ('./backend/pages/content.php');
+        include ('./pages/content.php');
 
-        include ('./backend/pages/footer.php');
+        include ('./pages/footer.php');
         
-        include ('./backend/pages/back-to-top.php');
+        include ('./pages/back-to-top.php');
         
         ?>
     </div>

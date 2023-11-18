@@ -1,29 +1,29 @@
  <!-- header -->
  <div class="header">
             <!-- logo home -->
-            <img onclick="document.location.href='#'" src="./fontend/images/logo.svg" alt="" width="7%">
+            <img onclick="document.location.href='index.php'" src="./fontend/images/logo.svg" alt="" width="7%">
 
             <!-- list menu -->
             <ul class="list-menu">
                 <li>
-                    <a href="#">Trang Chủ</a>
+                    <a href="index.php">Trang Chủ</a>
                 </li>
                 <li>
-                    <a href="#">Giới Thiệu</a>
+                    <a href="index.php?quanly=gioithieu">Giới Thiệu</a>
                 </li>
                 <li>
-                    <a href="#">Tin Tức</a>
+                    <a href="index.php?quanly=tintuc">Tin Tức</a>
                 </li>
                 <li>
-                    <a href="#">Liên Hệ</a>
+                    <a href="index.php?quanly=lienhe">Liên Hệ</a>
                 </li>
                 <li>
-                    <a href="#">Sản Phẩm</a>
+                    <a href="index.php?quanly=danhmucsanpham">Sản Phẩm</a>
                     <ul class="submenu">
-                        <li><a href="">Nam</a></li>
-                        <li><a href="">Nữ</a></li>
-                        <li><a href="">Bé trai</a></li>
-                        <li><a href="">Bé gái</a></li>
+                        <li><a href="index.php?quanly=danhmucsanpham&id=1">Nam</a></li>
+                        <li><a href="index.php?quanly=danhmucsanpham&id=2">Nữ</a></li>
+                        <li><a href="index.php?quanly=danhmucsanpham&id=3">Bé trai</a></li>
+                        <li><a href="index.php?quanly=danhmucsanpham&id=4">Bé gái</a></li>
                     </ul>
                 </li>
             </ul>
