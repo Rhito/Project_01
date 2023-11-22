@@ -1,0 +1,50 @@
+.wrapper {
+    padding: 10px 4.64vw;
+}
+h1 {
+    color: blue;
+    text-align: center;
+}
+.wi40 {
+    width: 40%;
+}
+
+.mg8 {
+    padding: 4px 8px;
+}
+
+.tomato {
+    background-color: tomato;
+}
+
+.minwidth80 {
+    min-width: 80px;
+}
+
+.wrapper-form {
+    padding: 32px 0;
+}
+.list {
+    margin-top: 4%;
+    margin-bottom: 32px;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+.list li {
+    padding: 8px;
+}
+
+.list li a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+}
+.active {
+    text-decoration: underline;
+    text-decoration-color: #373846 ;
+}
+
+
+
+

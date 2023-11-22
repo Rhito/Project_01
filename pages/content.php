@@ -36,7 +36,15 @@
                 include ('./pages/content/suggestion-product.php');
             }
 
-        }else {
+        }elseif ($temp == 'gioithieu'){
+            // include
+        }elseif ($temp == 'tintuc'){
+            // include 
+        }elseif ($temp == 'lienhe'){
+            // include
+        }
+        
+        else {
             include ('./pages/content/blockdeals.php');
 
             include ('./pages/content/sanphamNam.php');

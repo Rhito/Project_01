@@ -11,22 +11,22 @@
 
         <div class="new-product container">
             <div class="new-product column3">
-                <a href="">
+                <a href="index.php?quanly=danhmucsanpham&id=2">
                     <img src="./fontend/images/newproductNu.jpg" alt="">
                 </a>
             </div>
             <div class="new-product column3">
-                <a href="">
+                <a href="index.php?quanly=danhmucsanpham&id=1">
                     <img src="./fontend/images/newproductNam.jpg" alt="">
                 </a>
             </div>
             <div class="new-product column3">
-                <a href="">
+                <a href="index.php?quanly=danhmucsanpham&id=4">
                     <img src="./fontend/images/newProductBeGai.jpg" alt="">
                 </a>
             </div>
             <div class="new-product column3">
-                <a href="">
+                <a href="index.php?quanly=danhmucsanpham&id=3">
                     <img src="./fontend/images/newProductBeTrai.jpg" alt="">
                 </a>
             </div>

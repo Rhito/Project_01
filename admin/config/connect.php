@@ -2,7 +2,7 @@
     $conn = new mysqli("localhost", "root", "", "project_01_dtl");
 
     // Check connection
-    if ($mysqli->connect_errno) {
-        echo "Failed to connect to MySQL: " . $mysqli->connect_error;
+    if ($conn->connect_errno) {
+        echo "Failed to connect to MySQL: " . $conn->connect_error;
         exit();
 }
