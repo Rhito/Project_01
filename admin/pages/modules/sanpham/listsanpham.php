@@ -5,18 +5,20 @@
 
      // xoa sanpham 
      include('deleteproduct.php');
-
-     include('viewproduct.php');
-    
-    if(isset($_GET['method'])){
-        $temp = $_GET['method'];
-        if($temp == 'createProduct'){
-            // them sanpham
-            include('themsanpham.php');
-        }elseif ($temp = 'edit'){
-            // sua sanpham
-            include ('editproduct.php');
-        }
+     
+     if(isset($_GET['method'])){
+         $temp = $_GET['method'];
+         if($temp == 'createProduct'){
+             // them sanpham
+             include('themsanpham.php');
+            //  include('viewproduct.php');
+             
+            }elseif ($temp = 'editProduct'){
+                // sua sanpham
+                include ('editproduct.php');
+            }
+        }else {
+        include('viewproduct.php');
     }
         // xem sanpham
         

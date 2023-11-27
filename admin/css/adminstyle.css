@@ -5,6 +5,9 @@ h1 {
     color: blue;
     text-align: center;
 }
+textarea {
+    width: 50%;
+}
 .wi40 {
     width: 40%;
 }

@@ -17,6 +17,7 @@
 <body>
     <div class="wrapper">
       <?php
+          include ('admin/config/connect.php');
        
         include ('./pages/header.php');
 

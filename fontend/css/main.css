@@ -524,7 +524,10 @@ html {
 .product-name {
     text-decoration: none;
     color: #333f48;
-    /* white-space: nowrap; */
+    text-transform: capitalize;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .product-name:hover {
