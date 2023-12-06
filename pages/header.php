@@ -3,22 +3,29 @@
             <!-- logo home -->
             <img onclick="document.location.href='index.php'" src="./fontend/images/logo.svg" alt="" width="7%">
 
+            <?php
+                if (isset($_GET['quanly'])){
+                    $temp = $_GET['quanly'];
+                }else {
+                    $temp = '_';
+                }
+            ?>
             <!-- list menu -->
             <ul class="list-menu">
                 <li>
-                    <a href="index.php">Trang Chủ</a>
+                    <a href="index.php" class="<?php if($temp == '') echo 'site-active'; ?>">Trang Chủ</a>
                 </li>
                 <li>
-                    <a href="index.php?quanly=gioithieu">Giới Thiệu</a>
+                    <a href="index.php?quanly=gioithieu" class="<?php if($temp == 'gioithieu') echo 'site-active'; ?>">Giới Thiệu</a>
                 </li>
                 <li>
-                    <a href="index.php?quanly=tintuc">Tin Tức</a>
+                    <a href="index.php?quanly=tintuc" class="<?php if($temp == 'tintuc') echo 'site-active'; ?>">Tin Tức</a>
                 </li>
                 <li>
-                    <a href="index.php?quanly=lienhe">Liên Hệ</a>
+                    <a href="index.php?quanly=lienhe" class="<?php if($temp == 'lienhe') echo 'site-active'; ?>">Liên Hệ</a>
                 </li>
                 <li>
-                    <a href="index.php?quanly=danhmucsanpham">Sản Phẩm</a>
+                    <a href="index.php?quanly=danhmucsanpham" class="<?php if($temp == 'danhmucsanpham') echo 'site-active'; ?>">Sản Phẩm</a>
                     <ul class="submenu">
                         <li><a href="index.php?quanly=danhmucsanpham&id=1">Nam</a></li>
                         <li><a href="index.php?quanly=danhmucsanpham&id=2">Nữ</a></li>
@@ -28,7 +35,7 @@
                 </li>
             </ul>
 
-            <!-- menu login and cart-shopping -->
+        <!-- menu login -->
             <div class="menu-icon">
                 <div class="user-login">
                     <a class="login-select">
@@ -115,11 +122,51 @@
                     </div>
                 </div>
 
+                    <!-- modal cart-shopping  -->
                 <div class="cart-shopping">
-                    <a href="#">
+                    <a class="cart-icon">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <span class="cart-shopping-title">Giỏ hàng</span>
                     </a>
+                    
+                    <div class="cart-wrapper">
+
+                        <div class="block-cart">
+                            <div class="block-cart-heading">
+                                <h3 class="cart-title">Giỏ hàng</h3>
+                                <button class="cart-close"><i class="fa-solid fa-angles-right"></i></button>
+                            </div>
+                            
+                            <div class="block-cart-content">
+                                <div class="cart-item">
+                                    <img src="./fontend/images/singledayProduct1.jpg" alt="" class="cart-img">
+                                    <div class="cart-item-details">
+                                        <a href="" class="cart-item-name">Áo phông dài tay bé trai cotton USA phối màu</a>
+                                        <div class="cloth-color color-selected">
+                                            <img src="./fontend/images/singledayProduct1.jpg" alt="">
+                                        </div>
+                                        <div class="cart-item-bottom">
+                                            <span class="normal-price">199.000 đ</span>
+                                            <div class="cart-item-qty">
+                                                <button class="minus-qty"><i class="fa-solid fa-minus"></i></button>
+                                                <input type="text" value="1" class="input-qty">
+                                                <button class="plus-qty"><i class="fa-solid fa-plus"></i></button>   
+                                            </div>
+                                        </div>    
+                                    </div>
+                                    <div class="remove-cart-item">
+                                        <i class="fa-solid fa-x"></i>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
+
             </div>
         </div>
+        

@@ -1,5 +1,5 @@
 <!-- conntent -->
-<div class="content">
+<div class="content" id="content"> 
     <?php
         if (isset($_GET['quanly'])){
             $temp = $_GET['quanly'];

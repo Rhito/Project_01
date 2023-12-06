@@ -28,6 +28,22 @@ function closeSignIn (){
 signInBtn.addEventListener('click', showSignIn);
 closeSignInModal.addEventListener('click', closeSignIn);
 
+// cart shopping
+const cartBtn = document.querySelector('.cart-icon')
+const cartModal = document.querySelector('.cart-wrapper')
+const cartClose = document.querySelector('.cart-close')
+
+function showCart (){
+    cartModal.classList.add('cart-active');
+};
+function closeCart (){
+    cartModal.classList.remove('cart-active');
+};
+
+// cartModal.addEventListener('click', closeCart);
+cartBtn.addEventListener('click', showCart);
+cartClose.addEventListener('click', closeCart);
+
 // slider
 let list = document.querySelector('.slider .list-slider');
 let items = document.querySelectorAll('.slider .list-slider .item-slider');
@@ -95,15 +111,17 @@ $(document).ready(function () {
                 breakpoint: 1025,
                 settings: {
                     slidesToShow: 3,
+                    dots: true,
                 },
             },
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: 2,
                     arrows: false,
                     infinite: true,
                     draggable: true,
+                    dots: true,
                 },
             },
         ],
@@ -111,3 +129,12 @@ $(document).ready(function () {
         // autoplaySpeed: 1000,
     });
 });
+
+// scroll to top
+const backToTopBtn = document.querySelector('.back-to-top');
+  function scrollToTop() {
+    // Cuộn về đầu trang
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  console.log(scrollToTop());
+  backToTopBtn.addEventListener('click', scrollToTop())

@@ -2,4 +2,4 @@
         <a href="">
             <i class="fa-solid fa-angle-up"></i>
         </a>
-    </div>
+</div>

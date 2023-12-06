@@ -10,6 +10,9 @@
                 <div class="item-slider">
                     <img src="./fontend/images/banner3.jpg" alt="">
                 </div>
+                <div class="item-slider">
+                    <img src="./fontend/images/banner3.jpg" alt="">
+                </div>
             </div>
 
             <div class="btns-slider">
@@ -19,6 +22,7 @@
 
             <ul class="dots-slider">
                 <li class="active"></li>
+                <li></li>
                 <li></li>
                 <li></li>
             </ul>
