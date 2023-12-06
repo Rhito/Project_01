@@ -130,6 +130,7 @@
                     </a>
                     
                     <div class="cart-wrapper">
+                        <div class="exit-cart"></div>
 
                         <div class="block-cart">
                             <div class="block-cart-heading">
@@ -139,7 +140,9 @@
                             
                             <div class="block-cart-content">
                                 <div class="cart-item">
-                                    <img src="./fontend/images/singledayProduct1.jpg" alt="" class="cart-img">
+                                    <div class="cart-item-photo">
+                                        <img src="./fontend/images/singledayProduct1.jpg" alt="" class="cart-img">
+                                    </div>
                                     <div class="cart-item-details">
                                         <a href="" class="cart-item-name">Áo phông dài tay bé trai cotton USA phối màu</a>
                                         <div class="cloth-color color-selected">
@@ -152,6 +155,7 @@
                                                 <input type="text" value="1" class="input-qty">
                                                 <button class="plus-qty"><i class="fa-solid fa-plus"></i></button>   
                                             </div>
+                                            <input type="submit" class="cartQtyBtn" name="cartQtyBtn" value="cập nhật số lượng">
                                         </div>    
                                     </div>
                                     <div class="remove-cart-item">

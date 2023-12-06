@@ -29,9 +29,11 @@ signInBtn.addEventListener('click', showSignIn);
 closeSignInModal.addEventListener('click', closeSignIn);
 
 // cart shopping
-const cartBtn = document.querySelector('.cart-icon')
-const cartModal = document.querySelector('.cart-wrapper')
-const cartClose = document.querySelector('.cart-close')
+const cartBtn = document.querySelector('.cart-icon');
+const cartModal = document.querySelector('.cart-wrapper');
+const cartClose = document.querySelector('.cart-close');
+const exitCart = document.querySelector('.exit-cart');
+const addToCartButtons = document.querySelectorAll('.add-to-card');
 
 function showCart (){
     cartModal.classList.add('cart-active');
@@ -41,7 +43,12 @@ function closeCart (){
 };
 
 // cartModal.addEventListener('click', closeCart);
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', showCart);
+});
 cartBtn.addEventListener('click', showCart);
+
+exitCart.addEventListener('click', closeCart);
 cartClose.addEventListener('click', closeCart);
 
 // slider
@@ -111,7 +118,6 @@ $(document).ready(function () {
                 breakpoint: 1025,
                 settings: {
                     slidesToShow: 3,
-                    dots: true,
                 },
             },
             {
@@ -121,7 +127,6 @@ $(document).ready(function () {
                     arrows: false,
                     infinite: true,
                     draggable: true,
-                    dots: true,
                 },
             },
         ],
@@ -129,12 +134,3 @@ $(document).ready(function () {
         // autoplaySpeed: 1000,
     });
 });
-
-// scroll to top
-const backToTopBtn = document.querySelector('.back-to-top');
-  function scrollToTop() {
-    // Cuộn về đầu trang
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-  console.log(scrollToTop());
-  backToTopBtn.addEventListener('click', scrollToTop())
