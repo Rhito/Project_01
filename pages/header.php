@@ -144,19 +144,26 @@
                                         <img src="./fontend/images/singledayProduct1.jpg" alt="" class="cart-img">
                                     </div>
                                     <div class="cart-item-details">
-                                        <a href="" class="cart-item-name">Áo phông dài tay bé trai cotton USA phối màu</a>
-                                        <div class="cloth-color color-selected">
-                                            <img src="./fontend/images/singledayProduct1.jpg" alt="">
-                                        </div>
-                                        <div class="cart-item-bottom">
-                                            <span class="normal-price">199.000 đ</span>
-                                            <div class="cart-item-qty">
-                                                <button class="minus-qty"><i class="fa-solid fa-minus"></i></button>
-                                                <input type="text" value="1" class="input-qty">
-                                                <button class="plus-qty"><i class="fa-solid fa-plus"></i></button>   
+                                        <a href="?idsanpham=<?php //echo $row['id_sanpham']?>" class="cart-item-name">Áo phông dài tay bé trai cotton USA phối màu</a>
+                                        
+                                        <div class="cart-show">
+                                            <div class="cart-infor">
+                                                <div class="cloth-color color-selected">
+                                                    <img src="./fontend/images/singledayProduct1.jpg" alt="">
+                                                </div>
+                                                <span class="id-product">Mã SP: <?php //echo $row['mau_sanpham']?>dasdada</span>
+                                                <span class="normal-price">199.000 đ</span>
                                             </div>
-                                            <input type="submit" class="cartQtyBtn" name="cartQtyBtn" value="cập nhật số lượng">
-                                        </div>    
+    
+                                            <div class="cart-quantity">
+                                                <div class="cart-item-qty">
+                                                    <button class="minus-qty"><i class="fa-solid fa-minus"></i></button>
+                                                    <input type="text" value="1" class="input-qty">
+                                                    <button class="plus-qty"><i class="fa-solid fa-plus"></i></button>   
+                                                </div>
+                                                <button type="submit" class="cartQtyBtn" name="cartQtyBtn" style="cursor: pointer;">Cập nhật số lượng</button>
+                                            </div>    
+                                        </div>
                                     </div>
                                     <div class="remove-cart-item">
                                         <i class="fa-solid fa-x"></i>

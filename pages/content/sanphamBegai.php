@@ -33,7 +33,7 @@
                     <img src="admin/uploads/<?php echo $row['mau_sanpham']; ?>" alt="">
                 </div>
                 <div class="inf-product">
-                    <a href="" class="product-name"><?php echo $row['ten_sanpham']; ?></a>
+                    <a href="?idsanpham=<?php echo $row['id_sanpham']?>" class="product-name"><?php echo $row['ten_sanpham']; ?></a>
                     <div class="price-box">
                         <span class="normal-price"><?php echo $row['gia_sanpham']; ?> ₫</span>
                         <div class="product-item-label-text">Độc quyền online</div>
