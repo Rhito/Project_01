@@ -11,13 +11,14 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="./fontend/css/main.css">
     <link rel="stylesheet" href="./fontend/css/resposive1.css">
+    <link rel="stylesheet" href="./fontend/css/product-details.css">
     
 </head>
 
 <body>
     <div class="wrapper">
       <?php
-          include ('admin/config/connect.php');
+        include ('admin/config/connect.php');
        
         include ('./pages/header.php');
 

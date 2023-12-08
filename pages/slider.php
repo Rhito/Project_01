@@ -1,5 +1,5 @@
 <!-- slider -->
-<div class="slider">
+<div class="slider <?php if(isset($_GET['idsanpham'])) echo "unactive" ?> ">
             <div class="list-slider">
                 <div class="item-slider">
                     <img src="./fontend/images/banner1.jpg" alt="">

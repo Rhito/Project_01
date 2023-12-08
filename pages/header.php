@@ -7,7 +7,7 @@
                 if (isset($_GET['quanly'])){
                     $temp = $_GET['quanly'];
                 }else {
-                    $temp = '_';
+                    $temp = '';
                 }
             ?>
             <!-- list menu -->
@@ -27,10 +27,16 @@
                 <li>
                     <a href="index.php?quanly=danhmucsanpham" class="<?php if($temp == 'danhmucsanpham') echo 'site-active'; ?>">Sản Phẩm</a>
                     <ul class="submenu">
-                        <li><a href="index.php?quanly=danhmucsanpham&id=1">Nam</a></li>
-                        <li><a href="index.php?quanly=danhmucsanpham&id=2">Nữ</a></li>
-                        <li><a href="index.php?quanly=danhmucsanpham&id=3">Bé trai</a></li>
-                        <li><a href="index.php?quanly=danhmucsanpham&id=4">Bé gái</a></li>
+                        <?php
+                            include ('admin/config/connect.php');
+                            $sql = "SELECT * FROM danhmuc WHERE 1 = 1";
+                            $result = $conn->query($sql);
+                            while ($row = $result->fetch_array()) {
+                                if ($row['trangthai'] == 1) {
+                                    echo "<li><a href='index.php?quanly=danhmucsanpham&id={$row['id_danhmuc']}'>{$row['ten_danhmuc']}</a></li>";
+                                }
+                            }
+                        ?>
                     </ul>
                 </li>
             </ul>

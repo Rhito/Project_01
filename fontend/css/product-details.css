@@ -1,0 +1,144 @@
+/* Product details */
+.page-detail-wrapper {
+    display: block;
+    padding: 0 7.64vw;
+    font-family: 'Montserrat', serif;
+    margin-bottom: 200px;
+    margin-top: 116px;
+}
+.tab-list {
+    display: flex;
+    list-style: none;
+    margin: 20px 0 24px;
+}
+
+.tab:not(:last-child) a {
+    text-decoration: none;
+    font-size: 12px;
+    color: #c8c7cc;
+}
+.tab:last-child {
+    color: #333f48;
+    text-transform: capitalize;
+}
+
+.tab:not(:last-child):after {
+    content: "|";
+    margin: 0 6px;
+    color: #c8c7cc;
+}
+
+.items-detail {
+    display: flex;
+    justify-content: center;
+}
+
+.items-detail-photo {
+    width: 420px;
+    margin-right: 136px;
+}
+.items-detail-photo img {
+    display: block;
+    width: 100%;
+}
+
+.items-detail-infor {
+    width: 33.33%;
+}
+
+.detail-infor-top h1 {
+    display: block;
+    margin: 0 0 4px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.product-code span {
+    font-weight: 400;
+    font-size: 14px;
+    margin-right: 4px;
+    line-height: 20px;
+}
+.product-code strong {
+    font-weight: 550;
+}
+
+.product-price {
+    color: #333f48;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    display: block;
+    margin: 16px 0;
+}
+.title-color {
+    font-size: 14px;
+    display: block;
+    font-weight: 400;
+}
+.items-detail-color {
+    width: 34px;
+    height: 34px;
+}
+
+.product-action {
+    display: block;
+    width: 100%;
+    border: 1px solid #da291c;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 2px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    color: #fff;
+    height: auto;
+    padding: 11px;
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 20px;
+    background-color: #da291c;
+    cursor: pointer;
+
+}
+
+.items-title h4 {
+    font-weight: 650;
+    padding-bottom: 4px;
+}
+
+.items-title p {
+    text-align: justify;
+    font-size: 14px;
+}
+
+
+
+/* --- RESPONSIVE --- */ 
+/* mobile and tablet */
+@media (max-width: 63.9375em){
+    .tab-list {
+        
+    }
+}
+/* Moblie <= 739px / 46.1875em */
+@media (max-width: 46.1875em){
+    .items-detail {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .detail-infor-top h1 {
+        margin-top: 16px;
+    }
+    .items-detail-infor {
+        width: 100%;
+    }
+    .items-detail-photo {
+        width: 100%;
+        margin: 0;
+    }
+}
+

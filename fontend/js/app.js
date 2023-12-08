@@ -31,21 +31,25 @@ closeSignInModal.addEventListener('click', closeSignIn);
 // cart shopping
 const cartBtn = document.querySelector('.cart-icon');
 const cartModal = document.querySelector('.cart-wrapper');
+const cartModal2 = document.querySelector('.block-cart');
+const addToCartButtons = document.querySelectorAll('.add-to-card');
+
 const cartClose = document.querySelector('.cart-close');
 const exitCart = document.querySelector('.exit-cart');
-const addToCartButtons = document.querySelectorAll('.add-to-card');
 
 function showCart (){
     cartModal.classList.add('cart-active');
+    cartModal2.classList.add('cart-active');
 };
 function closeCart (){
     cartModal.classList.remove('cart-active');
+    cartModal2.classList.remove('cart-active');
 };
 
-// cartModal.addEventListener('click', closeCart);
 addToCartButtons.forEach(button => {
     button.addEventListener('click', showCart);
 });
+
 cartBtn.addEventListener('click', showCart);
 
 exitCart.addEventListener('click', closeCart);
@@ -118,6 +122,7 @@ $(document).ready(function () {
                 breakpoint: 1025,
                 settings: {
                     slidesToShow: 3,
+                    draggable: true,
                 },
             },
             {
