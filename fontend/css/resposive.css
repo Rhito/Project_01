@@ -5,16 +5,13 @@
 
 /*  1023px / 63.9375em >= Tablet >= 740px / 46.25em */
 @media (max-width: 63.9375em) and (min-width: 46.25em){
-    .list-menu>li:hover .submenu {
-        top: 42px;
-    }
     .menu-icon span {
         text-align: center;
         font-size: 12px;
     }
     /* submenu */
     .list-menu>li:hover .submenu {
-        top: 42px;
+        top: 48px;
     }
 }
 
@@ -33,7 +30,7 @@
     }
 
     .block-product {
-        margin-top: 96px;
+        /* margin-top: 96px; */
         padding: 20px 7.64vw;
     }
 

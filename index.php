@@ -10,7 +10,7 @@
     <link href='//fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="./fontend/css/main.css">
-    <link rel="stylesheet" href="./fontend/css/resposive1.css">
+    <link rel="stylesheet" href="./fontend/css/resposive.css">
     <link rel="stylesheet" href="./fontend/css/product-details.css">
     
 </head>

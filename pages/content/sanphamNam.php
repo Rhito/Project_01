@@ -24,10 +24,12 @@
             <div class="image-item">
                 <div class="image">
                     <img src="admin/uploads/<?php echo $row['anh_sanpham'] ?>" alt="">
-                    <div class="add-to-card">
-                        <p>Thêm nhanh vào giỏ</p>
+                    <form action="" method="post">
+                        <button name="add-to-cardBtn" type="submit" value="<?php echo $row['id_sanpham'] ?>" class="add-to-card">
+                            <p>Thêm nhanh vào giỏ</p>
+                        </button>
                     </div>
-                </div>
+                    </form>
                 <div class="cloth-color color-selected">
                     <img src="admin/uploads/<?php echo $row['mau_sanpham']; ?>" alt="">
                 </div>

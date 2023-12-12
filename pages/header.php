@@ -1,4 +1,38 @@
- <!-- header -->
+<?php
+    session_start();
+
+    $cart = (isset($_SESSION['cart'])) ? $_SESSION['cart'] : [];
+
+    $id = $_POST['add-to-cardBtn'];
+    $sql = "SELECT * FROM sanpham WHERE id_sanpham = '$id'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_array();
+    $quantity = (isset($_POST['cartQtyBtn'])) ? 1 : $_POST['cart-qty'];
+
+    if (isset($_POST['add-to-cardBtn'])){
+
+     
+        $items = [
+            'id_sanpham' => $row['id_sanpham'],
+            'ten_sanpham' => $row['ten_sanpham'],
+            'mau_sanpham' => $row['mau_sanpham'],
+            'anh_sanpham' => $row['anh_sanpham'],
+            'gia_sanpham' => $row['gia_sanpham'],
+            'quantity' => $quantity,
+        ];
+
+        if(isset($_SESSION['cart'][$id])){
+            $_SESSION['cart'][$id]['quantity'] += $quantity;
+        }else {
+            $_SESSION['cart'][$id] = $items;
+        }
+       
+        // var_dump($_SESSION['cart']);
+        // die();
+    }
+?>
+
+<!-- header -->
  <div class="header">
             <!-- logo home -->
             <img onclick="document.location.href='index.php'" src="./fontend/images/logo.svg" alt="" width="7%">
@@ -41,7 +75,7 @@
                 </li>
             </ul>
 
-        <!-- menu login -->
+            <!-- menu icons -->
             <div class="menu-icon">
                 <div class="user-login">
                     <a class="login-select">
@@ -145,29 +179,33 @@
                             </div>
                             
                             <div class="block-cart-content">
+                                <?php foreach ($cart as $key => $values): ?>
                                 <div class="cart-item">
                                     <div class="cart-item-photo">
-                                        <img src="./fontend/images/singledayProduct1.jpg" alt="" class="cart-img">
+                                        <img src="admin/uploads/<?php echo $values['anh_sanpham']; ?>" alt="" class="cart-img">
                                     </div>
                                     <div class="cart-item-details">
-                                        <a href="?idsanpham=<?php //echo $row['id_sanpham']?>" class="cart-item-name">Áo phông dài tay bé trai cotton USA phối màu</a>
+                                        <a href="?idsanpham=<?php echo $values['id_sanpham']; ?>" class="cart-item-name">Áo phông dài tay bé trai cotton USA phối màu</a>
                                         
                                         <div class="cart-show">
                                             <div class="cart-infor">
                                                 <div class="cloth-color color-selected">
-                                                    <img src="./fontend/images/singledayProduct1.jpg" alt="">
+                                                    <img src="admin/uploads/<?php echo $values['mau_sanpham']; ?>" alt="">
                                                 </div>
-                                                <span class="id-product">Mã SP: <?php //echo $row['mau_sanpham']?>dasdada</span>
-                                                <span class="normal-price">199.000 đ</span>
+                                                <span class="id-product">Mã SP: <?php echo $values['id_sanpham']; ?></span>
+                                                <span class="normal-price"><?php echo $values['gia_sanpham']; ?></span>
                                             </div>
     
                                             <div class="cart-quantity">
-                                                <div class="cart-item-qty">
-                                                    <button class="minus-qty"><i class="fa-solid fa-minus"></i></button>
-                                                    <input type="text" value="1" class="input-qty">
-                                                    <button class="plus-qty"><i class="fa-solid fa-plus"></i></button>   
-                                                </div>
-                                                <button type="submit" class="cartQtyBtn" name="cartQtyBtn" style="cursor: pointer;">Cập nhật số lượng</button>
+                                                <form method="post">
+                                                    <div class="cart-item-qty">
+                                                        <a class="minus-qty"><i class="fa-solid fa-minus"></i></a>
+                                                        <input type="text" value="<?php echo $values['quantity']; ?>" class="input-qty" name="cart-qty">
+                                                        <a class="plus-qty"><i class="fa-solid fa-plus"></i></a>   
+                                                    </div>
+                                                    <button type="submit" class="cartQtyBtn" name="cartQtyBtn" style="cursor: pointer;">Cập nhật số lượng</button>
+
+                                                </form>
                                             </div>    
                                         </div>
                                     </div>
@@ -175,8 +213,14 @@
                                         <i class="fa-solid fa-x"></i>
                                     </div>
                                 </div>
-
-
+                                <?php endforeach; ?>
+                            </div>
+                            <div class="block-cart-footer">
+                                <div class="price-pay">
+                                    <h4>Tạm tính: </h4>
+                                    <p class="normal-price">150000</p>
+                                </div>
+                                <button type="submit" class="payBtn" name="payBtn">Thanh toán</button>
                             </div>
                         </div>
 

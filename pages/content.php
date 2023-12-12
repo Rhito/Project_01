@@ -27,7 +27,7 @@
                         include ('./pages/content/sanphamBegai.php');
                         include ('./pages/content/suggestion-product.php');
                     }
-    
+
                 }else {
                     include ('./pages/content/blockdeals.php');
     
