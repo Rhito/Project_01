@@ -7,22 +7,20 @@
     $sql = "SELECT * FROM sanpham WHERE id_sanpham = '$id'";
     $result = $conn->query($sql);
     $row = $result->fetch_array();
-    $quantity = (isset($_POST['cartQtyBtn'])) ? 1 : $_POST['cart-qty'];
 
+    $quantity = (isset($_POST['cartQtyBtn'])) ? $_POST['cart-qty'] : 1;
     if (isset($_POST['add-to-cardBtn'])){
-
-     
         $items = [
-            'id_sanpham' => $row['id_sanpham'],
-            'ten_sanpham' => $row['ten_sanpham'],
-            'mau_sanpham' => $row['mau_sanpham'],
-            'anh_sanpham' => $row['anh_sanpham'],
-            'gia_sanpham' => $row['gia_sanpham'],
-            'quantity' => $quantity,
-        ];
+                    'id_sanpham' => $row['id_sanpham'],
+                    'ten_sanpham' => $row['ten_sanpham'],
+                    'mau_sanpham' => $row['mau_sanpham'],
+                    'anh_sanpham' => $row['anh_sanpham'],
+                    'gia_sanpham' => $row['gia_sanpham'],
+                    'quantity' => $quantity,
+                ];
 
         if(isset($_SESSION['cart'][$id])){
-            $_SESSION['cart'][$id]['quantity'] += $quantity;
+            $_SESSION['cart'][$id]['quantity'] += 1;
         }else {
             $_SESSION['cart'][$id] = $items;
         }

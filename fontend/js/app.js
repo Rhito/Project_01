@@ -55,6 +55,60 @@ cartBtn.addEventListener('click', showCart);
 exitCart.addEventListener('click', closeCart);
 cartClose.addEventListener('click', closeCart);
 
+// //cart increment - decrement 
+// const minusQty = document.querySelector('.minus-qty');
+// // const numberElement = document.querySelector('.input-qty');
+// const plusQty = document.querySelector('.plus-qty');
+
+// let num = document.querySelector('.input-qty').value;
+// plusQty.addEventListener('click', () => {
+    
+//     num++;
+//     // Update the input value directly
+//     document.querySelector('.input-qty').value = num;
+// });
+
+// minusQty.addEventListener('click', () => {
+// if (num > 1) {
+//     num--;
+//     // Update the input value directly
+//     document.querySelector('.input-qty').value = num;
+// }
+// });
+
+const inputQtyElements = document.querySelectorAll('.input-qty');
+
+// Add click event listeners to all elements with the class 'plus-qty'
+document.querySelectorAll('.plus-qty').forEach((plusQty, index) => {
+  plusQty.addEventListener('click', () => {
+    // Get the value of the corresponding input element
+    let num = parseInt(inputQtyElements[index].value);
+    
+    // Increment the value
+    num++;
+
+    // Update the input value directly
+    inputQtyElements[index].value = num;
+  });
+});
+
+// Add click event listeners to all elements with the class 'minus-qty'
+document.querySelectorAll('.minus-qty').forEach((minusQty, index) => {
+  minusQty.addEventListener('click', () => {
+    // Get the value of the corresponding input element
+    let num = parseInt(inputQtyElements[index].value);
+
+    // Check if the value is greater than 1 before decrementing
+    if (num > 1) {
+      // Decrement the value
+      num--;
+
+      // Update the input value directly
+      inputQtyElements[index].value = num;
+    }
+  });
+});
+
 // slider
 let list = document.querySelector('.slider .list-slider');
 let items = document.querySelectorAll('.slider .list-slider .item-slider');
@@ -139,3 +193,5 @@ $(document).ready(function () {
         // autoplaySpeed: 1000,
     });
 });
+
+
