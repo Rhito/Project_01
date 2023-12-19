@@ -56,25 +56,6 @@ exitCart.addEventListener('click', closeCart);
 cartClose.addEventListener('click', closeCart);
 
 // //cart increment - decrement 
-// const minusQty = document.querySelector('.minus-qty');
-// // const numberElement = document.querySelector('.input-qty');
-// const plusQty = document.querySelector('.plus-qty');
-
-// let num = document.querySelector('.input-qty').value;
-// plusQty.addEventListener('click', () => {
-    
-//     num++;
-//     // Update the input value directly
-//     document.querySelector('.input-qty').value = num;
-// });
-
-// minusQty.addEventListener('click', () => {
-// if (num > 1) {
-//     num--;
-//     // Update the input value directly
-//     document.querySelector('.input-qty').value = num;
-// }
-// });
 
 const inputQtyElements = document.querySelectorAll('.input-qty');
 

@@ -1,35 +1,37 @@
 <?php
     session_start();
 
-    $cart = (isset($_SESSION['cart'])) ? $_SESSION['cart'] : [];
-
-    $id = $_POST['add-to-cardBtn'];
-    $sql = "SELECT * FROM sanpham WHERE id_sanpham = '$id'";
-    $result = $conn->query($sql);
-    $row = $result->fetch_array();
-
-    $quantity = (isset($_POST['cartQtyBtn'])) ? $_POST['cart-qty'] : 1;
+    $cart = (isset($_SESSION['cart'])) ? $_SESSION['cart'] : []; 
+    $quantity = 1;
     if (isset($_POST['add-to-cardBtn'])){
-        $items = [
-                    'id_sanpham' => $row['id_sanpham'],
-                    'ten_sanpham' => $row['ten_sanpham'],
-                    'mau_sanpham' => $row['mau_sanpham'],
-                    'anh_sanpham' => $row['anh_sanpham'],
-                    'gia_sanpham' => $row['gia_sanpham'],
-                    'quantity' => $quantity,
-                ];
-
-        if(isset($_SESSION['cart'][$id])){
-            $_SESSION['cart'][$id]['quantity'] += 1;
-        }else {
-            $_SESSION['cart'][$id] = $items;
-        }
-       
-        // var_dump($_SESSION['cart']);
-        // die();
+        $id = $_POST['add-to-cardBtn'];
+            // lay theo id nhung trong truong hop ma id khong duoc lay tu post
+            // no se bi loi khong co id khi do no se khong chay duoc doan code
+            $sql = "SELECT * FROM sanpham WHERE id_sanpham = '$id'";
+            $result = $conn->query($sql);
+            $row = $result->fetch_array();
+            
+            $items = [
+                        'id_sanpham' => $row['id_sanpham'],
+                        'ten_sanpham' => $row['ten_sanpham'],
+                        'mau_sanpham' => $row['mau_sanpham'],
+                        'anh_sanpham' => $row['anh_sanpham'],
+                        'gia_sanpham' => $row['gia_sanpham'],
+                        'quantity' => $quantity
+                    ];
+        
+            $_SESSION['cart'][] = $items;
+            if(isset($_SESSION['cart'][$id])){
+                $_SESSION['cart'][$id]['quantity'] += 1;
+            }
     }
-?>
 
+    if (isset($_POST['cartQtyBtn'])) {
+        $id = $_POST['cartQtyBtn'];
+        $_SESSION['cart'][$id]['quantity'] = $_POST['cart-qty'];
+    }       
+        ?>
+        
 <!-- header -->
  <div class="header">
             <!-- logo home -->
@@ -177,13 +179,16 @@
                             </div>
                             
                             <div class="block-cart-content">
-                                <?php foreach ($cart as $key => $values): ?>
+                                <?php
+                                    if ($cart != []){
+
+                                    foreach ($cart as $key => $values): ?>
                                 <div class="cart-item">
                                     <div class="cart-item-photo">
                                         <img src="admin/uploads/<?php echo $values['anh_sanpham']; ?>" alt="" class="cart-img">
                                     </div>
                                     <div class="cart-item-details">
-                                        <a href="?idsanpham=<?php echo $values['id_sanpham']; ?>" class="cart-item-name">Áo phông dài tay bé trai cotton USA phối màu</a>
+                                        <a href="?idsanpham=<?php echo $values['id_sanpham']; ?>" class="cart-item-name"><?php echo $values['ten_sanpham'] ?></a>
                                         
                                         <div class="cart-show">
                                             <div class="cart-infor">
@@ -201,7 +206,7 @@
                                                         <input type="text" value="<?php echo $values['quantity']; ?>" class="input-qty" name="cart-qty">
                                                         <a class="plus-qty"><i class="fa-solid fa-plus"></i></a>   
                                                     </div>
-                                                    <button type="submit" class="cartQtyBtn" name="cartQtyBtn" style="cursor: pointer;">Cập nhật số lượng</button>
+                                                    <button type="submit" class="cartQtyBtn" name="cartQtyBtn" style="cursor: pointer;" value="<?php echo $values['id_sanpham']; ?>">Cập nhật số lượng</button>
 
                                                 </form>
                                             </div>    
@@ -211,7 +216,9 @@
                                         <i class="fa-solid fa-x"></i>
                                     </div>
                                 </div>
-                                <?php endforeach; ?>
+                                <?php endforeach;
+                                    }
+                                ?>
                             </div>
                             <div class="block-cart-footer">
                                 <div class="price-pay">
