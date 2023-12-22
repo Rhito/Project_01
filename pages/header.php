@@ -5,8 +5,6 @@
     $quantity = 1;
     if (isset($_POST['add-to-cardBtn'])){
         $id = $_POST['add-to-cardBtn'];
-            // lay theo id nhung trong truong hop ma id khong duoc lay tu post
-            // no se bi loi khong co id khi do no se khong chay duoc doan code
             $sql = "SELECT * FROM sanpham WHERE id_sanpham = '$id'";
             $result = $conn->query($sql);
             $row = $result->fetch_array();
@@ -20,13 +18,15 @@
                         'quantity' => $quantity
                     ];
         
-            $_SESSION['cart'][] = $items;
+            
             if(isset($_SESSION['cart'][$id])){
                 $_SESSION['cart'][$id]['quantity'] += 1;
+            }else {
+                $_SESSION['cart'][$id] = $items;
             }
     }
 
-    if (isset($_POST['cartQtyBtn'])) {
+    if (isset($_POST['cartQtyBtn']) && $_SESSION['cart'] != "") {
         $id = $_POST['cartQtyBtn'];
         $_SESSION['cart'][$id]['quantity'] = $_POST['cart-qty'];
     }       
@@ -165,6 +165,15 @@
                     <!-- modal cart-shopping  -->
                 <div class="cart-shopping">
                     <a class="cart-icon">
+                        <span class="in-cart"><?php 
+                            $numOfProduct = 0;
+                            foreach ($cart as $key => $values){
+                                $numOfProduct++;
+                            }
+                            if ($numOfProduct != 0) {
+                                echo $numOfProduct;
+                            }
+                        ?></span>
                         <i class="fa-solid fa-cart-shopping"></i>
                         <span class="cart-shopping-title">Giỏ hàng</span>
                     </a>

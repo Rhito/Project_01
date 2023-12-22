@@ -24,7 +24,7 @@
             <div class="image-item">
                 <div class="image">
                     <img src="admin/uploads/<?php echo $row['anh_sanpham'] ?>" alt="">
-                    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'); ?>" method="post">
+                    <form action="<?php //echo htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'); ?>" method="post">
                         <button name="add-to-cardBtn" type="submit" value="<?php echo $row['id_sanpham'] ?>" class="add-to-card">
                             <p>Thêm nhanh vào giỏ</p>
                         </button>

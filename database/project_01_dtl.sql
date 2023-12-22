@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2023 at 08:55 AM
+-- Generation Time: Dec 21, 2023 at 03:01 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,155 +24,147 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Table structure for table `admin`
 --
 
-CREATE TABLE `categories` (
-  `CATEGORY_ID` char(15) NOT NULL,
-  `CATEGORY_NAME` varchar(120) NOT NULL,
-  `STATUS` tinyint(1) NOT NULL
+CREATE TABLE `admin` (
+  `id_admin` char(15) NOT NULL,
+  `name_admin` varchar(120) NOT NULL,
+  `password` char(120) NOT NULL,
+  `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customers`
+-- Table structure for table `danhmuc`
 --
 
-CREATE TABLE `customers` (
-  `CUSTOMER_ID` int(15) NOT NULL,
-  `CUSTOMER_NAME` varchar(120) NOT NULL,
-  `PHONE_NUMBER` int(10) NOT NULL,
-  `EMAIL` varchar(120) NOT NULL,
-  `ADDRESS` varchar(200) NOT NULL
+CREATE TABLE `danhmuc` (
+  `id_danhmuc` int(11) NOT NULL,
+  `ten_danhmuc` varchar(120) NOT NULL,
+  `trangthai` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `danhmuc`
+--
+
+INSERT INTO `danhmuc` (`id_danhmuc`, `ten_danhmuc`, `trangthai`) VALUES
+(1, 'Nam', 1),
+(2, 'Nữ', 1),
+(3, 'Bé trai', 1),
+(4, 'Bé gái', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `khachhang`
+--
+
+CREATE TABLE `khachhang` (
+  `id_khachhang` char(10) NOT NULL,
+  `ten_khachhang` varchar(120) NOT NULL,
+  `tuoi_khachhang` int(3) NOT NULL,
+  `diachi` varchar(200) NOT NULL,
+  `sodienthoai` int(10) NOT NULL,
+  `email` varchar(120) NOT NULL,
+  `tendangnhap` char(50) NOT NULL,
+  `matkhau` char(50) NOT NULL,
+  `trangthai` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orderdetail`
+-- Table structure for table `sanpham`
 --
 
-CREATE TABLE `orderdetail` (
-  `ORDERDETAIL_ID` int(15) NOT NULL,
-  `ORDER_ID` char(15) NOT NULL,
-  `PRODUCT_ID` char(15) NOT NULL,
-  `QUANTITY` int(11) NOT NULL
+CREATE TABLE `sanpham` (
+  `id_sanpham` char(16) NOT NULL,
+  `anh_sanpham` varchar(200) NOT NULL,
+  `mau_sanpham` varchar(200) NOT NULL,
+  `ten_sanpham` varchar(120) NOT NULL,
+  `id_danhmuc` int(11) NOT NULL,
+  `soluong` int(11) NOT NULL,
+  `gia_sanpham` int(11) NOT NULL,
+  `tinhtrang_sanpham` tinyint(1) NOT NULL,
+  `noidung_sanpham` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `orders`
+-- Dumping data for table `sanpham`
 --
 
-CREATE TABLE `orders` (
-  `ORDER_ID` char(15) NOT NULL,
-  `CUSTOMER_ID` int(15) NOT NULL,
-  `ORDER_DATE` date NOT NULL,
-  `TOTAL_AMOUNT` int(9) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `product`
---
-
-CREATE TABLE `product` (
-  `PRODUCT_ID` char(15) NOT NULL,
-  `PRODUCT_NAME` varchar(120) NOT NULL,
-  `DESCRIPTION` varchar(200) NOT NULL,
-  `PRODUCT_PRICE` int(11) NOT NULL,
-  `CATEGORY_ID` char(15) NOT NULL,
-  `QUANTITY` int(11) NOT NULL,
-  `STATUS` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user_account`
---
-
-CREATE TABLE `user_account` (
-  `USER_ID` int(15) NOT NULL,
-  `USER_NAME` varchar(60) NOT NULL,
-  `PASSWORD` char(120) NOT NULL,
-  `CUSTOMER_ID` int(15) NOT NULL,
-  `ROLE` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `sanpham` (`id_sanpham`, `anh_sanpham`, `mau_sanpham`, `ten_sanpham`, `id_danhmuc`, `soluong`, `gia_sanpham`, `tinhtrang_sanpham`, `noidung_sanpham`) VALUES
+('1', '1700878213_singledayProduct1.jpg', '1700878213_sp257.png', 'áo nữ', 2, 12, 500000, 1, ''),
+('10', '1700882459_suggest2.jpg', '1700882459_service1.png', 'áo nữ', 2, 1, 500000, 1, ''),
+('11', '1700882485_newproductNu.jpg', '1700882485_service1.png', 'áo nữ', 2, 1, 500000, 1, ''),
+('12', '1700882518_suggest3.jpg', '1700882518_service3.png', 'áo nữ', 2, 1, 500000, 1, ''),
+('13', '1700882557_singledayProduct3.jpg', '1700882557_service2.png', 'áo bé trai', 3, 1, 500000, 1, ''),
+('14', '1700882599_newProductBeTrai.jpg', '1700882599_service1.png', 'áo bé trai', 3, 1, 500000, 1, ''),
+('15', '1700882628_newProductBeTrai.jpg', '1700882628_service3.png', 'áo bé trai', 3, 1, 500000, 1, ''),
+('16', '1700882653_newProductBeGai.jpg', '1700882653_service3.png', 'áo bé gái', 4, 1, 500000, 1, ''),
+('18', '1700882712_newProductBeGai.jpg', '1700882712_service2.png', 'áo bé gái', 4, 1, 500000, 1, ''),
+('20', '1700974979_newproductNam.jpg', '1700974979_service2.png', 'áo nam', 1, 1, 500000, 1, ''),
+('21', '1701052199_singledayProduct1.jpg', '1701052389_sp257.png', 'áo bé gái', 4, 1, 500000, 1, 'vcvx'),
+('3', '1700881572_newproductNam.jpg', '1700881572_service2.png', 'áo nam', 1, 1, 500000, 1, 'sdadadadada'),
+('5', '1700881672_singledayProduct3.jpg', '1700881672_service3.png', 'áo bé Trai', 3, 2, 500000, 1, 'đâ'),
+('6', '1700881716_newProductBeGai.jpg', '1700881716_service1.png', 'áo bé gái', 4, 2, 500000, 1, 'áda'),
+('7', '1700882370_singledayProduct4.jpg', '1700882370_service1.png', 'áo nam', 1, 2, 500000, 1, ''),
+('8', '1700882386_suggest1.jpg', '1700882386_service2.png', 'áo nam', 1, 2, 500000, 1, ''),
+('9', '1700882431_singledayProduct2.jpg', '1700882431_service3.png', 'áo nam', 1, 2, 500000, 1, '');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `customers`
+-- Indexes for table `admin`
 --
-ALTER TABLE `customers`
-  ADD PRIMARY KEY (`CUSTOMER_ID`);
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id_admin`);
 
 --
--- Indexes for table `orderdetail`
+-- Indexes for table `danhmuc`
 --
-ALTER TABLE `orderdetail`
-  ADD PRIMARY KEY (`ORDERDETAIL_ID`);
+ALTER TABLE `danhmuc`
+  ADD PRIMARY KEY (`id_danhmuc`);
 
 --
--- Indexes for table `orders`
+-- Indexes for table `khachhang`
 --
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`ORDER_ID`);
+ALTER TABLE `khachhang`
+  ADD PRIMARY KEY (`id_khachhang`),
+  ADD UNIQUE KEY `tendangnhap` (`tendangnhap`);
 
 --
--- Indexes for table `product`
+-- Indexes for table `sanpham`
 --
-ALTER TABLE `product`
-  ADD PRIMARY KEY (`PRODUCT_ID`);
-
---
--- Indexes for table `user_account`
---
-ALTER TABLE `user_account`
-  ADD PRIMARY KEY (`USER_ID`);
+ALTER TABLE `sanpham`
+  ADD PRIMARY KEY (`id_sanpham`),
+  ADD KEY `id_danhmuc` (`id_danhmuc`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `customers`
+-- AUTO_INCREMENT for table `danhmuc`
 --
-ALTER TABLE `customers`
-  MODIFY `CUSTOMER_ID` int(15) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `danhmuc`
+  MODIFY `id_danhmuc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `orderdetail`
+-- Constraints for dumped tables
 --
-ALTER TABLE `orderdetail`
-  MODIFY `ORDERDETAIL_ID` int(15) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `user_account`
+-- Constraints for table `sanpham`
 --
-ALTER TABLE `user_account`
-  MODIFY `USER_ID` int(15) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `sanpham`
+  ADD CONSTRAINT `sanpham_ibfk_1` FOREIGN KEY (`id_danhmuc`) REFERENCES `danhmuc` (`id_danhmuc`);
 COMMIT;
-
-ALTER TABLE orders
-ADD FOREIGN KEY (CUSTOMER_ID) REFERENCES customers(CUSTOMER_ID);
-
-ALTER TABLE product
-ADD FOREIGN KEY (CATEGORY_ID) REFERENCES categories(CATEGORY_ID);
-
-ALTER TABLE orderdetail
-ADD FOREIGN KEY (ORDER_ID) REFERENCES orders(ORDER_ID),
-ADD FOREIGN KEY (PRODUCT_ID) REFERENCES product(PRODUCT_ID);
-
-ALTER TABLE user_account
-ADD FOREIGN KEY (CUSTOMER_ID) REFERENCES customers(CUSTOMER_ID);
-
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -302,6 +302,16 @@ html {
 /* cart shopping */
 .cart-icon {
 }
+
+.in-cart {
+    position: absolute;
+    right: 76px;
+    top: 18px; 
+}
+.cart-icon:hover .in-cart {
+    color: #C70039;
+}
+
 .cart-wrapper {
     content: "";
     background-color: rgba(0,0,0,.2);

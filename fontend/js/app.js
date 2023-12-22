@@ -141,7 +141,7 @@ document.querySelectorAll(".nav-item").forEach(function (element) {
     });
 });
 
-
+// slick slider
 $(document).ready(function () {
     $(".image-slider").slick({
         slidesToShow: 4,
