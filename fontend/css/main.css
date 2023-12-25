@@ -238,8 +238,9 @@ html {
     text-align: center;
     line-height: 2.1250em;
     cursor: pointer;
+    z-index: 100;
 }
-.modal-signin-close,
+.modal-signin-close:hover,
 .modal-close:hover {
     color: #C70039;
 }
@@ -301,12 +302,13 @@ html {
 
 /* cart shopping */
 .cart-icon {
+    position: relative;
 }
 
 .in-cart {
     position: absolute;
-    right: 76px;
-    top: 18px; 
+    top: -4px;
+    right: 0; 
 }
 .cart-icon:hover .in-cart {
     color: #C70039;
@@ -493,6 +495,7 @@ html {
 
 .block-cart-footer {
     position: fixed;
+    height: 20.1%;
     width: 424px;
     bottom: 0;
     right: 0;

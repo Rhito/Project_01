@@ -1,5 +1,10 @@
 <!-- slider -->
-<div class="slider <?php if(isset($_GET['idsanpham'])) echo "unactive" ?> ">
+<?php
+    if(!isset($_GET['quanly'])) {
+        $_GET['quanly'] ='';
+    }
+?>
+<div class="slider <?php if(isset($_GET['idsanpham']) || ($_GET['quanly'] =='thongtinkhachhang')) echo "unactive" ?> ">
             <div class="list-slider">
                 <div class="item-slider">
                     <img src="./fontend/images/banner1.jpg" alt="">

@@ -1,0 +1,40 @@
+
+// pay products from cart
+user (click) -> thanh toán {
+	if($_SESSION['dangnhap']){
+		move -> payment
+	}else{
+		move -> login
+	}
+} 
+
+
+//sign-in site
+user -> fields form {
+	input values -> $_POST['values']
+	if(isset($_POST['submitBtn'])) {
+	  get the values from form and return $_POST['values']
+	  run query to database
+	  move -> login 
+	}
+}
+
+// login site map
+
+client (click) -> tài khoản {
+       if(isset($_SESSION['dangnhap'])){
+		check -> dataaabase
+		if(admin){
+			allow move to admin page
+			change -> (tài khoản, echo $_SESSION['dangnhap']['tennguoidung'])
+              		move -> display information of user, allow user change their infor
+		}else {
+			change -> (tài khoản, echo $_SESSION['dangnhap']['tennguoidung'])
+          		move -> the page display information of user, allow user change their infor
+		}
+            
+	}else {
+		move -> login, sign-in
+		
+	}
+}

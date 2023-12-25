@@ -2,6 +2,8 @@
 const loginBtn = document.querySelector('.login-select');
 const loginModal = document.querySelector('.login-modal')
 const closeModal = document.querySelector('.modal-close')
+const userTitle = document.querySelector('.user-title');
+const spanContent = userTitle.innerText;
 
 function showLogin (){
     loginModal.classList.add('visible');
@@ -10,7 +12,9 @@ function closeLogin (){
     loginModal.classList.remove('visible');
 };
 
-loginBtn.addEventListener('click', showLogin);
+if (spanContent === 'Tài khoản') {
+    loginBtn.addEventListener('click', showLogin);
+}
 closeModal.addEventListener('click', closeLogin);
 
 // sign in

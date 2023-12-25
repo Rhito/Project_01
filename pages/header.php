@@ -93,9 +93,15 @@ if (isset($_POST["remove-cart-item"])){
     <!-- menu icons -->
     <div class="menu-icon">
         <div class="user-login">
-            <a class="login-select">
+            <a <?php if(isset($_SESSION['dangnhap'])) echo 'href="index.php?quanly=thongtinkhachhang"';?> class="login-select">
                 <i class="fa-solid fa-user"></i>
-                <span class="user-title">Tài khoản</span>
+                <span class="user-title"> <?php 
+                    if (isset($_SESSION['dangnhap'])) {
+                        echo $_SESSION['dangnhap'];
+                    }else {
+                        echo 'Tài khoản';
+                    }
+                ?></span>
             </a>
         </div>
         <!-- modal login -->
@@ -109,17 +115,41 @@ if (isset($_POST["remove-cart-item"])){
                     <div class="login-img">
                         <img src="./fontend/images/account-login.png" alt="">
                     </div>
-
-                    <form action="" method="post" class="signin-frm">
+                    <!-- login backend -->
+                    <?php
+                        if(isset($_POST['submit-login-btn'])){
+                            $userName = filter_input(INPUT_POST, "login_username", FILTER_SANITIZE_SPECIAL_CHARS);
+                            $password = filter_input(INPUT_POST, "login_password", FILTER_SANITIZE_SPECIAL_CHARS);
+                            
+                            $sqlLogin = "SELECT * FROM khachhang WHERE tendangnhap = '$userName' AND matkhau = '$password'";
+                            $resultLogin = $conn->query($sqlLogin);
+                            $count = $resultLogin->num_rows;
+                            if (!empty($userName) && !empty($password)){
+                                if ($count > 0){
+                                    $_SESSION['dangnhap'] = $userName;
+                                    header('Location: index.php');
+                                }else {
+                                    echo "<script>alert('Sai tài khoản hoặc mật khẩu vui lòng nhập lại!')</script>";
+                                }
+                            }else {
+                                echo "<script>alert('Sai hoặc thiếu thông tin vui lòng nhập lại!')</script>";
+                            }
+                            
+                        }
+  
+                    ?>
+                    
+                    <form method="post" class="signin-frm">
                         <h1>Xin chào,</h1>
                         <label for="login_username">Tên đăng nhập:</label>
-                        <input class="form-control" type="text" name="login_username" id="login_username" placeholder="Tên đăng nhập">
+                        <input autocomplete="off" class="form-control" type="text" name="login_username" id="login_username" placeholder="Tên đăng nhập">
                         <label for="login_password">Mật khẩu:</label>
-                        <input class="form-control" type="password" name="login_password" id="login_password" placeholder="Mật khẩu">
+                        <input autocomplete="off" class="form-control" type="password" name="login_password" id="login_password" placeholder="Mật khẩu">
                         <button class="form-control submit-btn" name="submit-login-btn">
                             Tiếp tục
                         </button>
                     </form>
+                    
                     <div class="note-term">
                         <p>* nếu bạn chưa có tài khoản hãy đăng ký <a class="sign-in">* tại đây</a></p>
                     </div>
@@ -130,27 +160,26 @@ if (isset($_POST["remove-cart-item"])){
         </div>
         <!-- model sign-in -->
         <div class="signin-modal">
-            <div class="modal-content">
-                <div class="modal-signin-close">
-                    <i class="fa-solid fa-x"></i>
-                </div>
+
+            <div class="modal-signin-close">
+                <i class="fa-solid fa-x"></i>
             </div>
 
             <div class="block-signin">
                 <div class="modal-content ">
-                    <form action="" method="post" class="signin-frm">
+                    <form method="post" class="signin-frm">
                         <h1>Vui lòng nhập đầy đủ thông tin,</h1>
                         <label for="username">Tên đăng nhập:</label>
-                        <input class="form-control" type="text" name="username" id="username" placeholder="Tên đăng nhập">
+                        <input  autocomplete="off" class="form-control" type="text" name="username" id="username" placeholder="Tên đăng nhập">
 
                         <label for="password">Mật khẩu:</label>
-                        <input class="form-control" type="password" name="password" id="password" placeholder="Mật khẩu">
+                        <input autocomplete="off" class="form-control" type="password" name="password" id="password" placeholder="Mật khẩu">
 
                         <label for="full_name">Họ và tên</label>
-                        <input class="form-control" type="text" name="full_name" id="full_name">
+                        <input autocomplete="off" class="form-control" type="text" name="full_name" id="full_name">
 
                         <label for="age">Tuổi</label>
-                        <input class="form-control" type="text" name="age" id="age">
+                        <input autocomplete="off" class="form-control" type="number" name="age" id="age">
 
                         <label for="gender">Giới tính</label>
                         <select name="gender" id="gender" class="form-control">
@@ -159,13 +188,13 @@ if (isset($_POST["remove-cart-item"])){
                         </select>
 
                         <label for="address">Địa chỉ</label>
-                        <input class="form-control" type="text" name="address" id="address">
+                        <input autocomplete="off" class="form-control" type="text" name="address" id="address">
 
                         <label for="email">Email</label>
-                        <input class="form-control" type="email" name="email" id="email">
+                        <input autocomplete="off" class="form-control" type="email" name="email" id="email">
 
                         <label for="phone">Số điện thoại</label>
-                        <input class="form-control" type="number" name="phone" id="phone">
+                        <input autocomplete="off" class="form-control" type="number" name="phone" id="phone">
 
                         <button class="form-control submit-btn" name="submit-login-btn">
                             Tiếp tục
@@ -247,20 +276,20 @@ if (isset($_POST["remove-cart-item"])){
                     </div>
                     <div class="block-cart-footer">
                         <?php 
-                            $numOfProduct = 0;
+                            // $numOfProduct = 0;
                             $totalPay = 0;
                             foreach ($cart as $key => $values) {
                                 $numOfProduct++;
                                 $totalPay += $values['gia_sanpham'] * $values['quantity'];
                             }
-                            if ($numOfProduct != 0) {
+                            // if ($numOfProduct != 0) {
                         ?>
                         <div class="price-pay">
                             <h4>Tạm tính: </h4>
                             <p class="normal-price"><?php echo $totalPay; ?>₫</p>
                         </div>
                         <?php
-                            }
+                            // }
                         ?>
                         
                         <button type="submit" class="payBtn" name="payBtn">Thanh toán</button>

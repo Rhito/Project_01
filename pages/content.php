@@ -27,7 +27,6 @@
                         include ('./pages/content/sanphamBegai.php');
                         include ('./pages/content/suggestion-product.php');
                     }
-
                 }else {
                     include ('./pages/content/blockdeals.php');
     
@@ -50,20 +49,22 @@
                 // include 
             }elseif ($temp == 'lienhe'){
                 // include
-            }
-            
-            else {
+            }elseif ($temp == 'thongtinkhachhang'){          
+                include ('./pages/content/thongtinkhachhang.php');
+            }else {
                 include ('./pages/content/blockdeals.php');
     
                 include ('./pages/content/sanphamNam.php');
-                // include ('./pages/content/sanphamNu.php');
-                // include ('./pages/content/sanphamBetrai.php');
+                include ('./pages/content/sanphamNu.php');
+                include ('./pages/content/sanphamBetrai.php');
                 include ('./pages/content/sanphamBegai.php');
     
                 include ('./pages/content/block-collection.php');
     
                 include ('./pages/content/suggestion-product.php');
             }
+
+            
         }
 
     ?>
