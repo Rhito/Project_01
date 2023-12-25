@@ -49,7 +49,9 @@ $row = $result->fetch_array()
       </div>
 
       <div >
-        <button type="submit" class="product-action " title="Thêm vào giỏ" onclick="showCart ()" >Thêm vào giỏ</button>
+        <form method="post">
+          <button type="submit" value="<?php echo $row['id_sanpham']; ?>" class="product-action" name="add-to-cardBtn" title="Thêm vào giỏ" >Thêm vào giỏ</button>
+        </form>
       </div>
       <div class="items-title">
          <h4>Mô tả</h4>

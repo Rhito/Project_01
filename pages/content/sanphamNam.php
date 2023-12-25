@@ -28,8 +28,8 @@
                         <button name="add-to-cardBtn" type="submit" value="<?php echo $row['id_sanpham'] ?>" class="add-to-card">
                             <p>Thêm nhanh vào giỏ</p>
                         </button>
-                    </div>
                     </form>
+                </div>
                 <div class="cloth-color color-selected">
                     <img src="admin/uploads/<?php echo $row['mau_sanpham']; ?>" alt="">
                 </div>

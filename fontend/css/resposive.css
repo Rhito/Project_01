@@ -65,7 +65,7 @@
 
     /* shopping-cart */
     .block-cart {
-        width: auto;
+        /* width: auto; */
     }
 
     /* slick slider */
@@ -99,4 +99,11 @@
         width: 100%;
     }
 
+}
+
+/* screen < 1195px*/
+@media (max-width: 1195px){
+    .list-menu>li:hover .submenu {
+        top: 44px;
+    }
 }
