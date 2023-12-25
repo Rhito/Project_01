@@ -124,16 +124,23 @@ if (isset($_POST["remove-cart-item"])){
                             $sqlLogin = "SELECT * FROM khachhang WHERE tendangnhap = '$userName' AND matkhau = '$password'";
                             $resultLogin = $conn->query($sqlLogin);
                             $count = $resultLogin->num_rows;
+
                             if (!empty($userName) && !empty($password)){
                                 if ($count > 0){
-                                    $_SESSION['dangnhap'] = $userName;
-                                    header('Location: index.php');
+                                    $rowLogin = $resultLogin->fetch_array();
+                                    if ($rowLogin['trangthai'] == 0){
+                                        echo "<script>alert('Tài khoản bị đã bị khóa!')</script>";
+                                    }else {
+                                        $_SESSION['dangnhap'] = $userName;
+                                        header('Location: index.php');
+                                    }
                                 }else {
                                     echo "<script>alert('Sai tài khoản hoặc mật khẩu vui lòng nhập lại!')</script>";
                                 }
                             }else {
                                 echo "<script>alert('Sai hoặc thiếu thông tin vui lòng nhập lại!')</script>";
-                            }
+                           
+                                }
                             
                         }
   
@@ -145,7 +152,7 @@ if (isset($_POST["remove-cart-item"])){
                         <input autocomplete="off" class="form-control" type="text" name="login_username" id="login_username" placeholder="Tên đăng nhập">
                         <label for="login_password">Mật khẩu:</label>
                         <input autocomplete="off" class="form-control" type="password" name="login_password" id="login_password" placeholder="Mật khẩu">
-                        <button class="form-control submit-btn" name="submit-login-btn">
+                        <button class="form-control submit-btn" type="submit" name="submit-login-btn">
                             Tiếp tục
                         </button>
                     </form>
@@ -160,13 +167,39 @@ if (isset($_POST["remove-cart-item"])){
         </div>
         <!-- model sign-in -->
         <div class="signin-modal">
-
-            <div class="modal-signin-close">
-                <i class="fa-solid fa-x"></i>
-            </div>
-
             <div class="block-signin">
                 <div class="modal-content ">
+                    <div class="modal-signin-close">
+                        <i class="fa-solid fa-x"></i>
+                    </div>
+                    <?php
+                    if (isset($_POST['submit-signin-btn'])){
+                        $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+                        $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
+                        $full_name = filter_input(INPUT_POST, "full_name", FILTER_SANITIZE_SPECIAL_CHARS);
+                        $age = $_POST['age']; if($age <= 1 || $age >= 150) $age='';
+                        $gender = $_POST['gender'];
+                        $address = filter_input(INPUT_POST, "address", FILTER_SANITIZE_SPECIAL_CHARS);
+                        $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+                        $phone = filter_input(INPUT_POST, "phone", FILTER_SANITIZE_NUMBER_INT);
+
+                        if(empty($username) || empty($password) || empty($full_name) || empty($age) || 
+                           empty($gender) || empty($address) || empty($email) || empty($phone)) {
+                                echo "<script>alert('Sai hoặc thiếu thông tin vui lòng nhập lại!')</script>";
+                        }else {
+                            $sqlSignIn = "INSERT INTO khachhang(ten_khachhang, tuoi_khachhang, diachi,sodienthoai,
+                                                                email, tendangnhap, matkhau) 
+                                                VALUES ('$full_name','$age', '$gender', '$address', '$email',
+                                                        '$phone','$username','$password')";
+                            $resultSignIn = $conn->query($sqlSignIn);
+                            if ($resultSignIn){
+                                // echo "<script>alert('Chúc mừng bạn đăng ký thành công')</script>";
+                                // header('Location: index.php');
+                            }
+                        }
+
+                    }
+                    ?>
                     <form method="post" class="signin-frm">
                         <h1>Vui lòng nhập đầy đủ thông tin,</h1>
                         <label for="username">Tên đăng nhập:</label>
@@ -196,7 +229,7 @@ if (isset($_POST["remove-cart-item"])){
                         <label for="phone">Số điện thoại</label>
                         <input autocomplete="off" class="form-control" type="number" name="phone" id="phone">
 
-                        <button class="form-control submit-btn" name="submit-login-btn">
+                        <button class="form-control submit-btn" type="submit" name="submit-signin-btn">
                             Tiếp tục
                         </button>
                     </form>
