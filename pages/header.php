@@ -92,11 +92,26 @@ if (isset($_POST["remove-cart-item"])){
 
     <!-- menu icons -->
     <div class="menu-icon">
+        <?php if(isset($_SESSION['dangnhap']['admin'])){ ?>
+            
+            <div class="move-to-admin">
+                <a href="admin/index.php">
+                    <i class="fa-solid fa-key"></i>
+                    <span class="user-title">
+                        Admin page
+                    </span>
+                </a>
+            </div>
+        <?php
+        }
+        ?>
         <div class="user-login">
             <a <?php if(isset($_SESSION['dangnhap'])) echo 'href="index.php?quanly=thongtinkhachhang"';?> class="login-select">
                 <i class="fa-solid fa-user"></i>
                 <span class="user-title"> <?php 
-                    if (isset($_SESSION['dangnhap'])) {
+                    if (isset($_SESSION['dangnhap']['admin'])) {
+                        echo $_SESSION['dangnhap']['admin'];
+                    }elseif(isset($_SESSION['dangnhap'])){
                         echo $_SESSION['dangnhap'];
                     }else {
                         echo 'Tài khoản';
@@ -121,27 +136,39 @@ if (isset($_POST["remove-cart-item"])){
                             $userName = filter_input(INPUT_POST, "login_username", FILTER_SANITIZE_SPECIAL_CHARS);
                             $password = filter_input(INPUT_POST, "login_password", FILTER_SANITIZE_SPECIAL_CHARS);
                             
-                            $sqlLogin = "SELECT * FROM khachhang WHERE tendangnhap = '$userName' AND matkhau = '$password'";
+                            $sqlLogin = "SELECT * FROM admin WHERE username_admin = '$userName' AND password = '$password'";
                             $resultLogin = $conn->query($sqlLogin);
-                            $count = $resultLogin->num_rows;
-
+                            $countAdmin = $resultLogin->num_rows;
                             if (!empty($userName) && !empty($password)){
-                                if ($count > 0){
+                                if ($countAdmin > 0){
                                     $rowLogin = $resultLogin->fetch_array();
-                                    if ($rowLogin['trangthai'] == 0){
+                                    if ($rowLogin['status'] == 0){
                                         echo "<script>alert('Tài khoản bị đã bị khóa!')</script>";
                                     }else {
-                                        $_SESSION['dangnhap'] = $userName;
-                                        header('Location: index.php');
+                                        $_SESSION['dangnhap']['admin'] = $userName;
+                                        header('Location: admin/index.php');
                                     }
                                 }else {
-                                    echo "<script>alert('Sai tài khoản hoặc mật khẩu vui lòng nhập lại!')</script>";
+                                    $sqlLogin = "SELECT * FROM khachhang WHERE tendangnhap = '$userName' AND matkhau = '$password'";
+                                    $resultLogin = $conn->query($sqlLogin);
+                                    $count = $resultLogin->num_rows;
+
+                                    if ($count > 0){
+                                        $rowLogin = $resultLogin->fetch_array();
+                                        if ($rowLogin['trangthai'] == 0){
+                                            echo "<script>alert('Tài khoản bị đã bị khóa!')</script>";
+                                        }else {
+                                            $_SESSION['dangnhap'] = $userName;
+                                            header('Location: index.php');
+                                        }
+                                    }else {
+                                        echo "<script>alert('Sai tài khoản hoặc mật khẩu vui lòng nhập lại!')</script>";
+                                    }
                                 }
                             }else {
                                 echo "<script>alert('Sai hoặc thiếu thông tin vui lòng nhập lại!')</script>";
                            
-                                }
-                            
+                            }
                         }
   
                     ?>
@@ -182,6 +209,7 @@ if (isset($_POST["remove-cart-item"])){
                         $address = filter_input(INPUT_POST, "address", FILTER_SANITIZE_SPECIAL_CHARS);
                         $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
                         $phone = filter_input(INPUT_POST, "phone", FILTER_SANITIZE_NUMBER_INT);
+                        if($phone < 1) $phone = '';
 
                         if(empty($username) || empty($password) || empty($full_name) || empty($age) || 
                            empty($gender) || empty($address) || empty($email) || empty($phone)) {
@@ -228,7 +256,7 @@ if (isset($_POST["remove-cart-item"])){
                         <input autocomplete="off" class="form-control" type="email" name="email" id="email">
 
                         <label for="phone">Số điện thoại</label>
-                        <input autocomplete="off" class="form-control" type="number" name="phone" id="phone">
+                        <input autocomplete="off" placeholder="SĐT phải là định dang 10 chữ số" class="form-control" type="number" name="phone" id="phone">
 
                         <button class="form-control submit-btn" type="submit" name="submit-signin-btn">
                             Tiếp tục

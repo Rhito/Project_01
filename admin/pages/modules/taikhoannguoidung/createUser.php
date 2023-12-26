@@ -1,4 +1,4 @@
-<h3>Thêm mới sản phẩm</h3>
+<h3>Thêm thông tin khách hàng</h3>
 <?php 
     // create product
     if (isset($_POST['submitUser'])) {
@@ -15,25 +15,10 @@
         $phone = filter_input(INPUT_POST, "phone", FILTER_SANITIZE_NUMBER_INT);
         if(strlen($phone) != 10) $phone ="";
         $trangthai = $_POST['trangthai'];
-        // $ten_khachhang = $_POST['ten_khachhang'];
-        // $tuoi_khachhang = $_POST['tuoi_khachhang'];
-        // $gioitinh = $_POST['gioitinh'];
-        // $diachi = $_POST['diachi'];
-        // $sodienthoai = $_POST['sodienthoai'];
-        // $email = $_POST['email'];
-        // $tendangnhap = $_POST['tendangnhap'];
-        // $matkhau = $_POST['matkhau'];
-        // $gia_sanpham = $_POST['gia_sanpham'];
-        // $trangthai = $_POST['trangthai'];
         
-        if(empty($username) || empty($password) || empty($full_name) || empty($age) || 
-            empty($address) || empty($email) || empty($phone)) {
-
-                
-                    echo "<script>alert('Sai hoặc thiếu thông tin vui lòng nhập lại!')</script>";
-                    if($phone != '') {
-                        echo "<script>alert('Số điện thoại phải là 10 chữ số vui lòng nhập lại!')</script>";
-                    }
+        
+        if(empty($username) || empty($password) || empty($full_name) || empty($age) || empty($address) || empty($email) || empty($phone) || empty($gender)) {   
+            echo "<script>alert('Sai hoặc thiếu thông tin vui lòng nhập lại!')</script>";
                 
         }else {
 
@@ -45,7 +30,7 @@
             $result = $conn->query($sql);
             if ($result) {
                 echo "<h2 align='center' style='background-color: lime;'>Thêm thành công</h2>";
-                // header('Location: index.php?quanly=user'); 
+                header('Location: index.php?quanly=user'); 
             }else {
                 echo "<h2 align='center' style='background-color: tomato;'>Thêm thất bại!</h2>" .$conn->connect_error;
             }
@@ -70,6 +55,7 @@
                     <td>Giới Tính</td>
                     <td>
                         <select name="gender" class="wi40 mg8">
+                            <option value=""></option>
                             <option value="1">Nam</option>
                             <option value="0">Nữ</option>
                         </select>
