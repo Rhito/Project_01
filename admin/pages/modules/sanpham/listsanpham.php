@@ -17,7 +17,8 @@
                 // sua sanpham
                 include ('editproduct.php');
             }
-        }else {
+            
+    }else {
         include('viewproduct.php');
     }
         // xem sanpham

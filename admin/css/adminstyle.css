@@ -38,6 +38,10 @@ textarea {
     padding: 8px;
 }
 
+td {
+    vertical-align: middle;
+}
+
 .list li a {
     text-decoration: none;
     font-size: 18px;
