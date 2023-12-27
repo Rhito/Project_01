@@ -44,11 +44,11 @@
                 }
     
             }elseif ($temp == 'gioithieu'){
-                // include
+                include ('infor-page/gioithieu.php');
             }elseif ($temp == 'tintuc'){
-                // include 
+                include ('infor-page/tintuc.php');
             }elseif ($temp == 'lienhe'){
-                // include
+                include ('infor-page/lienhe.php');
             }elseif ($temp == 'thongtinkhachhang'){          
                 include ('./pages/content/thongtinkhachhang.php');
             }else {

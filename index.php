@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./fontend/css/main.css">
     <link rel="stylesheet" href="./fontend/css/resposive.css">
     <link rel="stylesheet" href="./fontend/css/product-details.css">
+    <link rel="stylesheet" href="./fontend/css/page.css">
     
 </head>
 
@@ -22,7 +23,14 @@
        
         include ('./pages/header.php');
 
-        include ('./pages/slider.php');
+        if (isset($_GET['quanly'])){
+          if($_GET['quanly'] == 'danhmucsanpham') {
+            include ('./pages/slider.php');
+          }
+
+        }else {
+          include ('./pages/slider.php');
+        }
         
         include ('./pages/content.php');
 
